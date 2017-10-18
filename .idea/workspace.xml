@@ -27,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="522">
@@ -37,16 +37,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat-main.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat-main.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chat-main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="126">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <marker date="1508356337879" expanded="true" signature="129:229" ph="..." />
-                <marker date="1508356337879" expanded="true" signature="136:229" ph="..." />
-                <marker date="1508356337879" expanded="true" signature="410:716" ph="..." />
-                <marker date="1508356337879" expanded="true" signature="867:888" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="214:314" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="221:267" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="221:314" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="328:343" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="418:435" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="495:588" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="495:801" ph="..." />
+                <marker date="1508360454503" expanded="true" signature="952:973" ph="..." />
               </folding>
             </state>
           </provider>
@@ -141,12 +145,12 @@
         <option value="$PROJECT_DIR$/scripts/js/jquery-3.2.1.min.js" />
         <option value="$PROJECT_DIR$/includes/chat-functions.inc.php" />
         <option value="$PROJECT_DIR$/scripts/php/send.php" />
-        <option value="$PROJECT_DIR$/chat-main.php" />
         <option value="$PROJECT_DIR$/scripts/js/auto-chat.js" />
         <option value="$PROJECT_DIR$/scripts/js/send.js" />
         <option value="$PROJECT_DIR$/scripts/php/chat.php" />
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/chat-main.php" />
       </list>
     </option>
   </component>
@@ -248,12 +252,12 @@
       <workItem from="1508332735152" duration="2000" />
       <workItem from="1508332751702" duration="564000" />
       <workItem from="1508333325193" duration="15000" />
-      <workItem from="1508343090978" duration="14214000" />
+      <workItem from="1508343090978" duration="14850000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33656000" />
+    <option name="totallyTimeSpent" value="34292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2552" y="247" width="1936" height="1053" extended-state="6" />
@@ -671,24 +675,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chat-main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <marker date="1508356337879" expanded="true" signature="129:229" ph="..." />
-            <marker date="1508356337879" expanded="true" signature="136:229" ph="..." />
-            <marker date="1508356337879" expanded="true" signature="410:716" ph="..." />
-            <marker date="1508356337879" expanded="true" signature="867:888" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="100" lean-forward="false" selection-start-line="29" selection-start-column="100" selection-end-line="29" selection-end-column="100" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chat-main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <marker date="1508360454503" expanded="true" signature="214:314" ph="..." />
+            <marker date="1508360454503" expanded="true" signature="221:267" ph="..." />
+            <marker date="1508360454503" expanded="true" signature="221:314" ph="..." />
+            <marker date="1508360454503" expanded="true" signature="328:343" ph="..." />
+            <marker date="1508360454503" expanded="true" signature="418:435" ph="..." />
+            <marker date="1508360454503" expanded="true" signature="495:588" ph="..." />
+            <marker date="1508360454503" expanded="true" signature="495:801" ph="..." />
+            <marker date="1508360454503" expanded="true" signature="952:973" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['Username'])){
+    header("Location: index.php");
+    exit();
+}
+
 include 'includes/database.inc.php';
 include 'includes/chat-functions.inc.php';
 ?>
