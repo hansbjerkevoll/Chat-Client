@@ -4,6 +4,7 @@ session_start();
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Chat Client</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -21,14 +22,23 @@ session_start();
 </head>
 <body>
 
-<form action = "includes\login.inc.php" method = "post">
-    Login:
-    <br><input type = "text" name = "username" placeholder = "Username/email" required><br>
-    <br><input type = "password"  name = "password" placeholder = "Password" required><br>
-    <br><button type = "submit" name = "submit">Login</button>
-</form>
+<div class = "page-body">
+    <div class = "page-wrapper">
+        <form action = "includes\login.inc.php" method = "post">
+            <p class = "header">Chat Client // Admin</p>
+            <input type = "text" name = "username" placeholder = "Username / E-mail" required><br>
+            <input type = "password"  name = "password" placeholder = "Password" required><br>
+            <button type = "submit" name = "submit">Login</button>
+        </form>
 
-<br><a href = "signup.php">Create a new account!</a>
+        <span class="link-left">Not registered? <a href = "signup.php">Create an account</a></span>
+        <span class="link-right">Forgot your password? <a href = index.php>Click here to reset</a></span>
+    </div>
+</div>
+
+
+
+
 
 </body>
 </html>
