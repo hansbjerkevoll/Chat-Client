@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+include 'includes/database.inc.php';
+include 'includes/chat-functions.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,32 +10,35 @@ session_start();
 <head>
     <title>Chat Client</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <?php
-
-    //Scripts for runnning popup boxes
-    if(isset($_SESSION['popup']) && $_SESSION['popup']){
-        $_SESSION['popup'] = False;
-        $message = $_SESSION['popup-message'];
-        echo "<script> window.alert('$message')</script>";
-    }
-
-    ?>
 </head>
 <body>
 
-<?php
-
-    echo "Name: " . $_SESSION['FirstName'] . " " . $_SESSION['LastName'] . "<br>";
-    echo "Username: " . $_SESSION['Username'] . "<br>";
-    echo "E-mail: " . $_SESSION['Email'] . "<br>";
-
-?>
+<div class = "page-body">
+    <div class = "page-wrapper">
+        <div id = "messages">
 
 
-<form onsubmit = "return confirm('Do you want to log out?')" action = "includes\logout.inc.php" method = "post">
-    <button type="submit" name="submit">Logout</button>
-</form>
+        </div>
+
+
+        <form action="#" method="post" id="message-form">
+            <input type = hidden name = "sender" id = "sender" value = <?php echo $_SESSION['Username']?>>
+            <input type = text name = "message" placeholder="Type a message..." id = "message" required>
+            <button type = submit name = "submit" id = "submit">Send</button>
+        </form>
+
+        <form onsubmit = "return confirm('Do you want to log out?')" action = "includes\logout.inc.php" method = "post">
+            <button style="background-color: red" type="submit" name="submit">Logout</button>
+        </form>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="scripts/js/auto-chat.js"></script>
+<script type="text/javascript" src="scripts/js/send.js"></script>
 
 </body>
 </html>
