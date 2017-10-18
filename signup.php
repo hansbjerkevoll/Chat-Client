@@ -8,7 +8,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Front page</title>
+    <title>Chat client</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <?php
@@ -27,6 +27,10 @@ session_start();
 
 <form action = includes\signup.inc.php method="post">
 
+    First Name:
+    <br><input type = "text" name = "firstname" required><br>
+    Last Name:
+    <br><input type = "text" name = "lastname" required><br>
     Username:
     <br><input type = "text" name = "username" required><br>
     Password:

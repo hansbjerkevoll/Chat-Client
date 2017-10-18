@@ -9,6 +9,8 @@ if(isset($_POST['submit'])){
     include 'database.inc.php';
 
     //Getting input from the forms on signup page
+    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $passwordCheck = mysqli_real_escape_string($conn, $_POST['passwordCheck']);
@@ -22,7 +24,21 @@ if(isset($_POST['submit'])){
         exit();
     }
 
+    //Checking if fields contain legal characters
+    if(!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $last) || !preg_match("/^[a-zA-Z]*$/", $last)) {
+        $_SESSION['popup'] = True;
+        $_SESSION['popup-message'] = "Input not valid!";
+        header("Location: ..\signup.php");
+        exit();
+    }
 
+    //Checking if email is valid
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $_SESSION['popup'] = True;
+        $_SESSION['popup-message'] = "E-mail adress not valid!";
+        header("Location: ..\signup.php");
+        exit();
+    }
 
     //Checking if the two type password match
     if(!($password == $passwordCheck)){
@@ -32,21 +48,19 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-
-
     //Checking if username or email is taken
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM Users";
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
-            if($username == $row['username']){
+            if($username == $row['Username']){
                 $_SESSION['popup'] = True;
                 $_SESSION['popup-message'] = "Username already taken";
                 header("Location: ..\signup.php");
                 exit();
             }
 
-            if($email == $row['email']){
+            if($email == $row['Email']){
                 $_SESSION['popup'] = True;
                 $_SESSION['popup-message'] = "Email-adress already in use";
                 header("Location: ..\signup.php");
@@ -59,13 +73,24 @@ if(isset($_POST['submit'])){
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     //Inserting data into the database
-
-    $sql = "INSERT INTO users (username, password, email) VAlUES ('$username', '$password', '$email')";
+    $sql = "INSERT INTO Users (FirstName, LastName, Username, Email, Password) VAlUES ('$firstname', '$lastname', '$username', '$email', '$password')";
 
     if (mysqli_query($conn, $sql)) {
+
+        //Logging in the user, with data from database
+        $sql = "SELECT * FROM Users WHERE Username = '$username'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+
+        $_SESSION['UserID'] = $row['UserID'];
+        $_SESSION['FirstName'] = $row['FirstName'];
+        $_SESSION['LastName'] = $row['LastName'];
+        $_SESSION['Username'] = $row['Username'];
+        $_SESSION['Email'] = $row['Email'];
+
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "User successfully created!";
-        header("Location: ..\signup.php");
+        header("Location: ..\chat-main.php");
         exit();
     }
     else{

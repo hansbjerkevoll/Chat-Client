@@ -21,14 +21,18 @@ session_start();
 </head>
 <body>
 
-<form action = "includes\login.inc.php" method = "post">
-    Login:
-    <br><input type = "text" name = "username" placeholder = "Username/email" required><br>
-    <br><input type = "password"  name = "password" placeholder = "Password" required><br>
-    <br><button type = "submit" name = "submit">Login</button>
-</form>
+<?php
 
-<br><a href = "signup.php">Create a new account!</a>
+    echo "Name: " . $_SESSION['FirstName'] . " " . $_SESSION['LastName'] . "<br>";
+    echo "Username: " . $_SESSION['Username'] . "<br>";
+    echo "E-mail: " . $_SESSION['Email'] . "<br>";
+
+?>
+
+
+<form onsubmit = "return confirm('Do you want to log out?')" action = "includes\logout.inc.php" method = "post">
+    <button type="submit" name="submit">Logout</button>
+</form>
 
 </body>
 </html>
