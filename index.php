@@ -24,7 +24,7 @@ session_start();
 
 <div class = "page-body">
     <div class = "page-wrapper">
-        <form action = "includes\login.inc.php" method = "post">
+        <form action = "includes/login.inc.php" method = "post">
             <p class = "header">Chat Client // Admin</p>
             <input type = "text" name = "username" placeholder = "Username / E-mail"  autocomplete="off" required><br>
             <input type = "password"  name = "password" placeholder = "Password" autocomplete="off" required><br>

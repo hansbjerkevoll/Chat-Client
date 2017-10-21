@@ -22,17 +22,14 @@ include 'includes/chat-functions.inc.php';
     <div class = "page-wrapper">
         <div id = "messages">
 
-
         </div>
 
-
         <form action="#" method="post" id="message-form">
-            <input type = hidden name = "sender" id = "sender" value = <?php echo $_SESSION['Username']?>>
             <input type = text name = "message" placeholder="Type a message..." id = "message" required>
             <button type = submit name = "submit" id = "submit">Send</button>
         </form>
 
-        <form onsubmit = "return confirm('Do you want to log out?')" action = "includes\logout.inc.php" method = "post">
+        <form onsubmit = "return confirm('Do you want to log out?')" action = "includes/logout.inc.php" method = "post">
             <button style="background-color: red" type="submit" name="submit">Logout</button>
         </form>
     </div>

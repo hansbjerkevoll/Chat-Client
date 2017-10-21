@@ -21,11 +21,10 @@ body {
 }
 
 .page-wrapper {
-
     margin: auto;
     width: 40%;
     border-radius: 20px;
-    background-color: #e4e4e4;
+    background-color: #f9f9f9;
     padding: 20px;
 }
 
@@ -36,8 +35,20 @@ body {
     overflow-x: hidden;
 }
 
-.message-label {
+.message-label{
+    background-color: blue;
+}
+
+.message-sent {
     display: block;
+    float: right;
+    border: solid;
+}
+
+.message-received{
+    display: block;
+    float: left;
+    border: solid;
 }
 
 #sent-messages {
