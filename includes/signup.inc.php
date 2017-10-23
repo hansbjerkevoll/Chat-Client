@@ -24,14 +24,6 @@ if(isset($_POST['submit'])){
         exit();
     }
 
-    //Checking if fields contain legal characters
-    if(!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $last) || !preg_match("/^[a-zA-Z]*$/", $last)) {
-        $_SESSION['popup'] = True;
-        $_SESSION['popup-message'] = "Input not valid!";
-        header("Location: ../signup.php");
-        exit();
-    }
-
     //Checking if email is valid
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $_SESSION['popup'] = True;

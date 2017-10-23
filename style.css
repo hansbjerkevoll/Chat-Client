@@ -1,14 +1,119 @@
 body {
     background-color: cornflowerblue;
     margin: 0;
+    padding: 0;
     height: 100%;
     overflow: hidden;
+    font-family: "Times New Roman";
 }
 
-.header {
-    text-align: center;
+.sidebar {
+    height: 100%;
+    width: 20%;
+    background-color: #f9f9f9;
+    position: fixed;
+    left: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.indexLogo {
     font-size: 40px;
     font-weight: bolder;
+    text-align: center;
+}
+
+.sidebarHeader {
+    font-size: 20px;
+    font-weight: bolder;
+    border-bottom: solid;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user {
+    background-color: #f9f9f9;
+    width:100%;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user:hover {
+    background-color: lightgrey;
+
+}
+
+.currentUser {
+    background-color: lawngreen;
+    width:100%;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-icon {
+    height: 45px;
+    padding-top: 7px;
+    padding-left: 5px;
+    position: fixed;
+
+}
+
+.user-details {
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: 60px;
+}
+
+.userList {
+    overflow: auto;
+    height: 90%;
+}
+
+.userList::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.userList::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.userList::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #d2d2d2;
+}
+
+.logout {
+    position: absolute;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    bottom: 0;
+    right: 0;'
+    border: none;
+}
+
+#logoutButton {
+    border: none;
+    background-color: cornflowerblue;
+}
+
+#logoutImg {
+    cursor: pointer;
+    border: none;
+    width: 60px;
 }
 
 .page-body{
@@ -69,7 +174,25 @@ input {
     font-size: 125%;
 }
 
-button {
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 125%;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    font-size: 20px;
+}
+
+.submitButton {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -80,7 +203,8 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+
+.submitButton:hover {
     background-color: #45A049;
 }
 

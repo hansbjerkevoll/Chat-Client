@@ -29,7 +29,9 @@ function get_msg($conn){
             $displayTime = date('H:i', $timeSent);
         }
 
-        $messages[] = array($row['Sender'], $displayTime, $row['Message']);
+        $message = nl2br(htmlspecialchars($row['Message']));
+
+        $messages[] = array($row['Sender'], $displayTime, $message);
     }
 
     return $messages;

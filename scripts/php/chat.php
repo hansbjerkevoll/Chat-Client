@@ -29,7 +29,7 @@ foreach ($messages as $message){
               padding: 5px;
               margin-top: 10px;
               margin-bottom: 10px'>
-              <b>" . $message[0] . " (" . $message[1] . ")" ."</b><br>" . $message[2] . "</div>";
+              <b><i>" . $message[0] . " (" . $message[1] . ")" ."</i></b><br>" . $message[2] . "</div>";
     }
 
 }

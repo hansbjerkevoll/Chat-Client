@@ -29,14 +29,19 @@ session_start();
 <div class = "page-body">
     <div class = "page-wrapper">
         <form action = includes\signup.inc.php method="post">
-            <p class = "header">Create an account</p>
+            <p class = "indexLogo">Create an account</p>
             <input type = "text" name = "firstname" placeholder = "First Name" required>
             <input type = "text" name = "lastname" placeholder = "Last Name" required>
             <input type = "text" name = "username" placeholder = "Username" required>
             <input type = password name = "password" placeholder = "Password" required>
             <input type = password name = "passwordCheck" placeholder = "Retype password" required>
             <input type = "email"  name = "email" placeholder = "E-mail" required>
-            <button type = "submit" name = "submit">Sign up</button>
+            <select>
+                <option disabled selected hidden>Gender:</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <button class="submitButton" type = "submit" name = "submit">Sign up</button>
 
         </form>
 
