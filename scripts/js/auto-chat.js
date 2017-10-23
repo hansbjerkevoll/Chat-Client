@@ -7,8 +7,8 @@ $(document).ready(function () {
                 var messages = document.getElementById('messages');
                 messages.scrollTop = messages.scrollHeight;
             }
-        })
-    }, 1000)
+        });
+    }, 250)
 });
 
 

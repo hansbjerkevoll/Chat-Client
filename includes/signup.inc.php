@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
     if(empty($username) || empty($password) || empty($passwordCheck) || empty($email)){
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "Missing fields";
-        header("Location: ..\signup.php");
+        header("Location: ../signup.php");
         exit();
     }
 
@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
     if(!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $firstname) || !preg_match("/^[a-zA-Z]*$/", $last) || !preg_match("/^[a-zA-Z]*$/", $last)) {
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "Input not valid!";
-        header("Location: ..\signup.php");
+        header("Location: ../signup.php");
         exit();
     }
 
@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "E-mail adress not valid!";
-        header("Location: ..\signup.php");
+        header("Location: ../signup.php");
         exit();
     }
 
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
     if(!($password == $passwordCheck)){
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "The two passwords don't match";
-        header("Location: ..\signup.php");
+        header("Location: ../signup.php");
         exit();
     }
 
@@ -56,14 +56,14 @@ if(isset($_POST['submit'])){
             if($username == $row['Username']){
                 $_SESSION['popup'] = True;
                 $_SESSION['popup-message'] = "Username already taken";
-                header("Location: ..\signup.php");
+                header("Location: ../signup.php");
                 exit();
             }
 
             if($email == $row['Email']){
                 $_SESSION['popup'] = True;
                 $_SESSION['popup-message'] = "Email-adress already in use";
-                header("Location: ..\signup.php");
+                header("Location: ../signup.php");
                 exit();
             }
         }
@@ -90,20 +90,20 @@ if(isset($_POST['submit'])){
 
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "User successfully created!";
-        header("Location: ..\chat-main.php");
+        header("Location: ../chat-main.php");
         exit();
     }
     else{
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "ERROR: FAILED TO CREATE NEW USER!"  . "\n" . mysqli_error($conn);
-        header("Location: ..\signup.php");
+        header("Location: ../signup.php");
         exit();
     }
 }
 else{
     $_SESSION['popup'] = True;
     $_SESSION['popup-message'] = "ERROR";
-    header("Location: ..\index.php");
+    header("Location: ../index.php");
     exit();
 }
 

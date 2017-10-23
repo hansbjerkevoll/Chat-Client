@@ -24,11 +24,11 @@ session_start();
 
 <div class = "page-body">
     <div class = "page-wrapper">
-        <form action = "includes\login.inc.php" method = "post">
-            <p class = "header">Chat Client // Admin</p>
+        <form action = "includes/login.inc.php" method = "post">
+            <p class = "indexLogo">Chat Client // Admin</p>
             <input type = "text" name = "username" placeholder = "Username / E-mail"  autocomplete="off" required><br>
             <input type = "password"  name = "password" placeholder = "Password" autocomplete="off" required><br>
-            <button type = "submit" name = "submit">Login</button>
+            <button class="submitButton" type = "submit" name = "submit">Login</button>
         </form>
 
         <span class="link-left">Not registered? <a href = "signup.php">Create an account</a></span>

@@ -1,15 +1,59 @@
 body {
     background-color: cornflowerblue;
     margin: 0;
+    padding: 0;
     height: 100%;
     overflow: hidden;
+    font-family: "Times New Roman";
 }
 
-.header {
-    text-align: center;
+.sidebar {
+    height: 100%;
+    width: 300px;
+    background-color: #f9f9f9;
+    position: fixed;
+    left: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.indexLogo {
     font-size: 40px;
     font-weight: bolder;
+    text-align: center;
 }
+
+.logo {
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+    border-bottom: solid;
+}
+
+.logoutDiv {
+    background-color: cornflowerblue;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+#logoutButton {
+    background-color: cornflowerblue;
+    border: none;
+}
+
+#logoutImg {
+    background-color: cornflowerblue;
+    cursor: pointer;
+    border: none;
+    width: 60px;
+}
+
+
+
 
 .page-body{
     display: flex;
@@ -21,11 +65,10 @@ body {
 }
 
 .page-wrapper {
-
     margin: auto;
     width: 40%;
     border-radius: 20px;
-    background-color: #e4e4e4;
+    background-color: #f9f9f9;
     padding: 20px;
 }
 
@@ -36,8 +79,20 @@ body {
     overflow-x: hidden;
 }
 
-.message-label {
+.message-label{
+    background-color: blue;
+}
+
+.message-sent {
     display: block;
+    float: right;
+    border: solid;
+}
+
+.message-received{
+    display: block;
+    float: left;
+    border: solid;
 }
 
 #sent-messages {
@@ -58,7 +113,14 @@ input {
     font-size: 125%;
 }
 
-button {
+textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    font-size: 20px;
+}
+
+.submitButton {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -69,7 +131,8 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+
+.submitButton:hover {
     background-color: #45A049;
 }
 

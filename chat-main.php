@@ -19,21 +19,32 @@ include 'includes/chat-functions.inc.php';
 <body>
 
 <div class = "page-body">
-    <div class = "page-wrapper">
-        <div id = "messages">
 
-
+    <div class="sidebar">
+        <div class="logo">
+            Chat Client
         </div>
+        <div class="head">
+            List of users:
+        </div>
+    </div>
 
+    <div class = "page-wrapper">
+
+        <div id = "messages"></div>
 
         <form action="#" method="post" id="message-form">
-            <input type = hidden name = "sender" id = "sender" value = <?php echo $_SESSION['Username']?>>
-            <input type = text name = "message" placeholder="Type a message..." id = "message" required>
-            <button type = submit name = "submit" id = "submit">Send</button>
+            <textarea name = "message" placeholder="Type a message..." id = "message" required></textarea>
+            <button class="submitButton" type = "submit" name="submit">Send</button>
         </form>
 
-        <form onsubmit = "return confirm('Do you want to log out?')" action = "includes\logout.inc.php" method = "post">
-            <button style="background-color: red" type="submit" name="submit">Logout</button>
+    </div>
+
+    <div class="logoutDiv">
+        <form onsubmit = "return confirm('Do you want to log out?')" action = "includes/logout.inc.php" method = "post">
+            <button id="logoutButton" type="submit" name="submit">
+                <img id="logoutImg" src="img/logout.png" alt="Logout">
+            </button>
         </form>
     </div>
 
@@ -44,6 +55,17 @@ include 'includes/chat-functions.inc.php';
 <script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#message').keypress(function(e){
+            if(e.which == 13 && !e.shiftKey){
+                // submit via ajax or
+                $('#message-form').submit();
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

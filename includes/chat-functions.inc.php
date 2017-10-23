@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 function get_msg($conn){
 
@@ -9,21 +10,43 @@ function get_msg($conn){
     $messages = array();
 
     while($row = mysqli_fetch_assoc($result)){
-        $messages[] = array($row['Sender'], $row['Message']);
+
+        //Get time message was sent
+        $timeSent = strtotime($row['TimeSent']);
+
+        //Converting to proper string
+
+        //Checking if text was sent last year
+        if((strtotime(date('Y', time()))) > (strtotime(date('Y', $timeSent)))){
+            $displayTime = date('jS M Y H:i', $timeSent);
+        }
+        //Checking if sent more than 24 hours ago
+        elseif($timeSent < time() - (24*3600)){
+            $displayTime = date('jS M H:i', $timeSent);
+        }
+        //If not display hour and minute
+        else{
+            $displayTime = date('H:i', $timeSent);
+        }
+
+        $messages[] = array($row['Sender'], $displayTime, $row['Message']);
     }
 
     return $messages;
 }
 
-function send_msg($sender, $message, $conn){
+function send_msg($message, $conn){
 
-    $sender = mysqli_real_escape_string($conn, $sender);
+    $sender = $_SESSION['Username'];
     $message = mysqli_real_escape_string($conn, $message);
 
     if(!(empty($sender) || empty($message))){
 
+        //Get current time
+        $currentDate = date('Y-m-d G-i-s',time());
+
         //Insert data into database
-        $sql = "INSERT INTO Chat (Sender, Message) VALUES ('$sender', '$message')";
+        $sql = "INSERT INTO Chat (Sender, TimeSent, Message) VALUES ('$sender', '$currentDate' ,'$message')";
 
         if(mysqli_query($conn, $sql)){
             return True;
@@ -35,5 +58,4 @@ function send_msg($sender, $message, $conn){
     else{
         return False;
     }
-
 }

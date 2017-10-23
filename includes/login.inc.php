@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
     if(empty($username) || empty($password)){
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "Missing fields";
-        header("Location: ..\index.php");
+        header("Location: ../index.php");
         exit();
     }
 
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
                 if(!password_verify($password, $row['Password'])){
                     $_SESSION['popup'] = True;
                     $_SESSION['popup-message'] = "Wrong username and/or password";
-                    header("Location: ..\index.php");
+                    header("Location: ../index.php");
                     exit();
                 }
                 //Logging in the user
@@ -46,21 +46,21 @@ if(isset($_POST['submit'])){
                 $_SESSION['Email'] = $row['Email'];
 
                 //Sending user to main page
-                header("Location: ..\chat-main.php");
+                header("Location: ../chat-main.php");
                 exit();
             }
         }
         if(!$validUsername){
             $_SESSION['popup'] = True;
             $_SESSION['popup-message'] = "Wrong username and/or password";
-            header("Location: ..\index.php");
+            header("Location: ../index.php");
             exit();
         }
     }
     else{
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "Wrong username and/or password";
-        header("Location: ..\index.php");
+        header("Location: ../index.php");
         exit();
     }
 
@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
 else{
     $_SESSION['popup'] = True;
     $_SESSION['popup-message'] = "ERROR";
-    header("Location: ..\index.php");
+    header("Location: ../index.php");
     exit();
 }
 
