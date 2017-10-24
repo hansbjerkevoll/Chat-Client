@@ -1,6 +1,7 @@
 ToDo-list:
 
-1) Ikke scrolle ned hvert sekund lol. Kun på pageload evt ny melding
-2) Slippe å måtte gå inn i database for å resete
-3) Mulighet til å chatte med kun en person
-4) Email-validering og forgotten password
+1) Automatisk oppdatering av sidebar, med varsel om ulest melding
+2) Skrivebordsvarsler og lydvarsler ved ny melding 
+3)Fikse scroll til å få funke 100%
+4) Slippe å måtte gå inn i database for å resete
+5) Email-validering og forgotten password

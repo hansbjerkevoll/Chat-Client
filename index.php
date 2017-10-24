@@ -32,7 +32,7 @@ if(isset($_SESSION['Username'])){
     <div class = "page-wrapper">
         <form action = "includes/login.inc.php" method = "post">
             <p class = "indexLogo">Chat Client // Admin</p>
-            <input type = "text" name = "username" placeholder = "Username / E-mail"  autocomplete="off" required><br>
+            <input type = "text" name = "username" placeholder = "Username / E-mail"  autocomplete="off" required autofocus><br>
             <input type = "password"  name = "password" placeholder = "Password" autocomplete="off" required><br>
             <button class="submitButton" type = "submit" name = "submit">Login</button>
         </form>

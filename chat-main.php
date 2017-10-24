@@ -32,7 +32,9 @@ include 'includes/chat-functions.inc.php';
 
             <div class="user" onclick='messageLogoChange(this)'>
                 <img class='user-icon' src= 'img/group-usericon.png'>
-                <div class='user-details'> <b>Group Chat</b></div>
+                <div class='user-details'>
+                    <b><span class='fullName'>Group Chat</span> <i hidden>(<span class='username'>group</span>)</i></b>
+                </div>
             </div>
 
             <?php
@@ -54,7 +56,7 @@ include 'includes/chat-functions.inc.php';
                     $imgLink = 'img/female-usericon.png';
                 }
 
-                echo "<div class='user' onclick='messageLogoChange(this)'> <img class='user-icon' src= $imgLink ><div class='user-details'>" . $fullName . " <i>("  .$userName . ")</i></div></div>";
+                echo "<div class='user' onclick='messageLogoChange(this)'> <img class='user-icon' src= $imgLink ><div class='user-details'><span class='fullName'>" . $fullName . "</span> <i>(<span class='username'>"  .$userName . "</span>)</i></div></div>";
             }
             ?>
         </div>
@@ -63,11 +65,13 @@ include 'includes/chat-functions.inc.php';
     </div>
 
     <div class = "page-wrapper">
-        <p id = "messageLogo">Group Chat</p>
+        <p id = "messageLogo">
+            <span class='fullName'> Group Chat</span> <i hidden>(<span class='username'>group</span>)</i>
+        </p>
         <div id = "messages"></div>
 
         <form action="#" method="post" id="message-form">
-            <pre><textarea name = "message" placeholder="Type a message..." id = "message" required></textarea></pre>
+            <pre><textarea name = "message" placeholder="Type a message..." id = "message" required autofocus></textarea></pre>
             <button class="submitButton" type = "submit" name="submit">Send</button>
         </form>
 
