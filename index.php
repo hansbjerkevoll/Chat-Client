@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if(isset($_SESSION['Username'])){
+    header("Location: chat-main.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -7,6 +12,7 @@ session_start();
 
 <head>
     <title>Chat Client</title>
+    <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <?php
@@ -32,7 +38,7 @@ session_start();
         </form>
 
         <span class="link-left">Not registered? <a href = "signup.php">Create an account</a></span>
-        <span class="link-right">Forgot your password? <a href = index.php>Click here to reset</a></span>
+        <span class="link-right">Forgot your password? <a href = #>Click here to reset</a></span>
     </div>
 </div>
 

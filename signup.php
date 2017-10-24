@@ -9,6 +9,7 @@ session_start();
 <html>
 <head>
     <title>Chat client</title>
+    <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <?php
@@ -36,7 +37,7 @@ session_start();
             <input type = password name = "password" placeholder = "Password" required>
             <input type = password name = "passwordCheck" placeholder = "Retype password" required>
             <input type = "email"  name = "email" placeholder = "E-mail" required>
-            <select>
+            <select name="gender">
                 <option disabled selected hidden>Gender:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>

@@ -7,14 +7,13 @@ function get_msg($conn){
     $sql = "SELECT * FROM Chat";
     $result = mysqli_query($conn, $sql);
 
+
     $messages = array();
 
     while($row = mysqli_fetch_assoc($result)){
 
         //Get time message was sent
         $timeSent = strtotime($row['TimeSent']);
-
-        //Converting to proper string
 
         //Checking if text was sent last year
         if((strtotime(date('Y', time()))) > (strtotime(date('Y', $timeSent)))){
@@ -29,6 +28,7 @@ function get_msg($conn){
             $displayTime = date('H:i', $timeSent);
         }
 
+        //Converting to proper string
         $message = nl2br(htmlspecialchars($row['Message']));
 
         $messages[] = array($row['Sender'], $displayTime, $message);

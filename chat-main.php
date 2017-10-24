@@ -14,6 +14,7 @@ include 'includes/chat-functions.inc.php';
 <html>
 <head>
     <title>Chat Client</title>
+    <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -28,6 +29,12 @@ include 'includes/chat-functions.inc.php';
         </div>
 
         <div class="userList">
+
+            <div class="user" onclick='messageLogoChange(this)'>
+                <img class='user-icon' src= 'img/group-usericon.png'>
+                <div class='user-details'> <b>Group Chat</b></div>
+            </div>
+
             <?php
 
             //Looping through all users and displaying them in the sidebar
@@ -47,7 +54,7 @@ include 'includes/chat-functions.inc.php';
                     $imgLink = 'img/female-usericon.png';
                 }
 
-                echo "<div class='user'> <img class='user-icon' src= $imgLink ><div class='user-details'>" . $fullName . " <i>("  .$userName . ")</i></div></div>";
+                echo "<div class='user' onclick='messageLogoChange(this)'> <img class='user-icon' src= $imgLink ><div class='user-details'>" . $fullName . " <i>("  .$userName . ")</i></div></div>";
             }
             ?>
         </div>
@@ -56,7 +63,7 @@ include 'includes/chat-functions.inc.php';
     </div>
 
     <div class = "page-wrapper">
-
+        <p id = "messageLogo">Group Chat</p>
         <div id = "messages"></div>
 
         <form action="#" method="post" id="message-form">
@@ -78,12 +85,42 @@ include 'includes/chat-functions.inc.php';
 </div>
 
 
+<!-- Script to change color to active element-->
+<script>
 
+    function messageLogoChange(item) {
+        document.getElementById('messageLogo').innerHTML = item.getElementsByClassName('user-details')[0].innerHTML;
+    }
+
+    function hoverColor(item) {
+        item.style.backgroundColor = 'lightgrey';
+    }
+
+    function resetColor(item) {
+        item.style.backgroundColor = '#f9f9f9';
+    }
+
+    var divItems = document.getElementsByClassName("user");
+
+    function selected(item){
+        this.clear();
+        item.style.backgroundColor = 'lightgrey';
+    }
+
+    function clear(){
+        for(var i=0; i < divItems.length; i++){
+            var item = divItems[i];
+            item.style.backgroundColor = '#f9f9f9';
+        }
+    }
+</script>
 
 <script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
+<script type="text/javascript" src="scripts/js/auto-scroll.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
 
+<!-- Script to send message when enter is clicked-->
 <script type="text/javascript">
     $(document).ready(function(){
         $('#message').keypress(function(e){
