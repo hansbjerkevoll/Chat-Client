@@ -32,7 +32,7 @@ session_start();
         </form>
 
         <span class="link-left">Not registered? <a href = "signup.php">Create an account</a></span>
-        <span class="link-right">Forgot your password? <a href = index.php>Click here to reset</a></span>
+        <span class="link-right">Forgot your password? <a href = #>Click here to reset</a></span>
     </div>
 </div>
 

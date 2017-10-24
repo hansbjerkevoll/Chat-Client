@@ -9,7 +9,7 @@ $messages = get_msg($conn);
 
 foreach ($messages as $message){
     if($_SESSION['Username'] == $message[0]){
-        echo "<div style='position: relative;
+        echo "<div class='message' style='position: relative;
               word-break: break-all;
               left: 48.6%;
               max-width: 50%; 
@@ -21,7 +21,7 @@ foreach ($messages as $message){
               <label><b>" . $message[0] . " (" . $message[1] . ")" ."</b><br>" . $message[2] . "</label></div>";
     }
     else{
-        echo "<div style='position: relative; 
+        echo "<div class='message' style='position: relative; 
               word-break: break-all;
               max-width: 50%; 
               border-radius: 10px;
@@ -29,7 +29,7 @@ foreach ($messages as $message){
               padding: 5px;
               margin-top: 10px;
               margin-bottom: 10px'>
-              <b>" . $message[0] . " (" . $message[1] . ")" ."</b><br>" . $message[2] . "</div>";
+              <b><i>" . $message[0] . " (" . $message[1] . ")" ."</i></b><br>" . $message[2] . "</div>";
     }
 
 }
