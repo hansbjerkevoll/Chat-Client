@@ -60,8 +60,6 @@ include 'includes/chat-functions.inc.php';
             }
             ?>
         </div>
-
-
     </div>
 
     <div class = "page-wrapper">
@@ -70,10 +68,15 @@ include 'includes/chat-functions.inc.php';
         </p>
         <div id = "messages"></div>
 
-        <form action="#" method="post" id="message-form">
-            <pre><textarea name = "message" placeholder="Type a message..." id = "message" required autofocus></textarea></pre>
-            <button class="submitButton" type = "submit" name="submit">Send</button>
-        </form>
+        <div>
+            <form action="#" method="post" id="message-form">
+                <textarea name = "message" placeholder="Type a message..." id = "message" required autofocus></textarea>
+                <button id="sendButton" type = "submit" name="submit">
+                    <img id="sendImg" src="img/send-icon.png">
+                </button>
+            </form>
+        </div>
+
 
     </div>
 
@@ -88,53 +91,30 @@ include 'includes/chat-functions.inc.php';
 
 </div>
 
+<script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="scripts/js/auto-chat.js"></script>
+<script type="text/javascript" src="scripts/js/send.js"></script>
 
-<!-- Script to change color to active element-->
-<script>
 
+<script type="text/javascript">
+    // Script to change color to active element
     function messageLogoChange(item) {
         document.getElementById('messageLogo').innerHTML = item.getElementsByClassName('user-details')[0].innerHTML;
     }
 
-    function hoverColor(item) {
-        item.style.backgroundColor = 'lightgrey';
-    }
-
-    function resetColor(item) {
-        item.style.backgroundColor = '#f9f9f9';
-    }
-
-    var divItems = document.getElementsByClassName("user");
-
-    function selected(item){
-        this.clear();
-        item.style.backgroundColor = 'lightgrey';
-    }
-
-    function clear(){
-        for(var i=0; i < divItems.length; i++){
-            var item = divItems[i];
-            item.style.backgroundColor = '#f9f9f9';
-        }
-    }
-</script>
-
-<script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="scripts/js/auto-chat.js"></script>
-<script type="text/javascript" src="scripts/js/auto-scroll.js"></script>
-<script type="text/javascript" src="scripts/js/send.js"></script>
-
-<!-- Script to send message when enter is clicked-->
-<script type="text/javascript">
+    //Script to send message when enter is clicked
     $(document).ready(function(){
         $('#message').keypress(function(e){
-            if(e.which == 13 && !e.shiftKey){
+            if(e.which === 13 && !e.shiftKey){
                 // submit via ajax or
                 $('#message-form').submit();
             }
         });
     });
 </script>
+
+
+
 
 </body>
 </html>

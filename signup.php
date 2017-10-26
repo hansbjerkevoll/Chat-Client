@@ -28,7 +28,7 @@ session_start();
 
 
 <div class = "page-body">
-    <div class = "page-wrapper">
+    <div class = "page-wrapper" style="height: auto">
         <form action = includes\signup.inc.php method="post">
             <p class = "indexLogo">Create an account</p>
             <input type = "text" name = "firstname" placeholder = "First Name" required>
@@ -46,7 +46,7 @@ session_start();
 
         </form>
 
-        Already registered? <a href = "index.php">Sign in</a>
+        Already registered? <a class="index-link" href = "index.php">Sign in</a>
     </div>
 </div>
 

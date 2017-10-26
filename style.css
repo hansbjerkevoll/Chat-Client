@@ -1,3 +1,5 @@
+/*Main components of page*/
+
 body {
     background-color: cornflowerblue;
     margin: 0;
@@ -6,6 +8,85 @@ body {
     overflow: hidden;
     font-family: "Times New Roman";
 }
+
+.page-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.page-wrapper {
+    margin: auto;
+    width: 50%;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    height: 85%;
+}
+
+
+/* Footer on index page*/
+
+#index-footer {
+    position: absolute;
+    height: 100px;
+    background-color: #4668A5;
+    width: 100%;
+    bottom: 0;
+}
+
+#footer-logo {
+    position: fixed;
+    height: 70px;
+    left: 0;
+    bottom: 0;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+#info {
+    position: fixed;
+    height: 70px;
+    left: 100px;
+    bottom: 37px;
+}
+
+#info-list {
+    list-style-type: none;
+    font-size: large;
+}
+
+.info-list-items {
+    padding: 3px;
+}
+
+.info-link {
+    text-decoration: none;
+    color: #f9f9f9;
+}
+
+.info-link:hover {
+    color: #c7c7c7;
+}
+
+#copyright-footer {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    margin-right: 15px;
+    margin-bottom: 25px;
+}
+
+#copyright-text {
+    font-size: 150%;
+}
+
+
+/*CSS for the sidebar and its elements*/
 
 .sidebar {
     height: 100%;
@@ -62,7 +143,6 @@ body {
     padding-top: 7px;
     padding-left: 5px;
     position: fixed;
-
 }
 
 .user-details {
@@ -76,72 +156,50 @@ body {
     height: 90%;
 }
 
-.logout {
-    position: absolute;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    bottom: 0;
-    right: 0;'
-    border: none;
-    cursor: pointer;
+
+/* CSS for the Chat */
+
+#messageLogo {
+    padding-bottom: 10px;
 }
 
-#logoutButton {
-    border: none;
-    background-color: cornflowerblue;
-}
-
-#logoutImg {
-    cursor: pointer;
-    border: none;
-    width: 60px;
-}
-
-.page-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-.page-wrapper {
-    margin: auto;
-    width: 40%;
-    border-radius: 20px;
-    background-color: #f9f9f9;
-    padding: 20px;
-}
 
 #messages {
     width: 100%;
-    height: 500px;
+    height: calc(100% - 110px);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.message-label{
-    background-color: blue;
-}
-
-.message-sent {
-    display: block;
-    float: right;
-    border: solid;
-}
-
-.message-received{
-    display: block;
+#message {
+    width: 93%;
+    height: 80px;
+    resize: none;
+    font-size: 20px;
     float: left;
-    border: solid;
 }
 
-#sent-messages {
+#message:focus {
+    outline: none;
+}
+
+#sendButton {
+    border: none;
     position: absolute;
     float: right;
-    list-style-type: none;
+    background-color: transparent;
+    margin-top: 15px;
+}
 
+#sendImg {
+    cursor: pointer;
+    border: none;
+    height: 50px;
+    background-color: transparent;
+}
+
+#sendButton:focus {
+    outline: none;
 }
 
 input {
@@ -166,12 +224,7 @@ select {
     font-size: 125%;
 }
 
-textarea {
-    width: 100%;
-    height: 80px;
-    resize: none;
-    font-size: 20px;
-}
+
 
 .submitButton {
     width: 100%;
@@ -189,25 +242,52 @@ textarea {
     background-color: #45A049;
 }
 
-a {
-    text-decoration: none;
-    color: #4CAF50;
-    text-align: center;
-}
 
-a:hover {
+/* Links on the login page (register and forgotten password) */
+.index-link:hover {
     color: #45A049;
 }
 
-.link-right {
-    float: right;
-}
-
-.link-left {
+#registered-link {
     float: left;
 }
 
 
+#password-link {
+    float: right;
+}
+
+.index-link {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+/*CSS for the logout button */
+
+.logout {
+    position: absolute;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    bottom: 0;
+    right: 0;'
+border: none;
+    cursor: pointer;
+}
+
+#logoutButton {
+    border: none;
+    background-color: transparent;
+}
+
+#logoutImg {
+    cursor: pointer;
+    border: none;
+    width: 60px;
+}
+
+#logoutImg:hover {
+    filter: brightness(80%);
+}
 
 /*Styling scrollbar for the list of users */
 .userList::-webkit-scrollbar-track

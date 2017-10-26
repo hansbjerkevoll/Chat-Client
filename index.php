@@ -29,7 +29,7 @@ if(isset($_SESSION['Username'])){
 <body>
 
 <div class = "page-body">
-    <div class = "page-wrapper">
+    <div class = "page-wrapper" style="height: auto">
         <form action = "includes/login.inc.php" method = "post">
             <p class = "indexLogo">Chat Client // Admin</p>
             <input type = "text" name = "username" placeholder = "Username / E-mail"  autocomplete="off" required autofocus><br>
@@ -37,10 +37,28 @@ if(isset($_SESSION['Username'])){
             <button class="submitButton" type = "submit" name = "submit">Login</button>
         </form>
 
-        <span class="link-left">Not registered? <a href = "signup.php">Create an account</a></span>
-        <span class="link-right">Forgot your password? <a href = #>Click here to reset</a></span>
+        <span id="registered-link">Not registered? <a href = "signup.php" class="index-link">Create an account</a></span>
+        <span id="password-link">Forgot your password? <a href = # class="index-link">Click here to reset</a></span>
     </div>
 </div>
+
+<footer id="index-footer">
+    <img id="footer-logo" src="img/chat-icon.png">
+    <div id="info">
+        <ul id="info-list">
+            <li class="info-list-items"><b>Made by: </b>Hans Bjerkevoll (Oct 2017)</li>
+            <li class="info-list-items"><b>Contact: </b> <a href="mailto:hansbjerkevoll@gmail.com" class="info-link" target="_blank">hansbjerkevoll@gmail.com</a></li>
+            <li class="info-list-items"><b>Git-Hub Repository: </b><a href="https://github.com/hansbjerkevoll/chat-client" target="_blank" class="info-link">https://github.com/hansbjerkevoll/chat-client</a></li>
+        </ul>
+    </div>
+    <div id="copyright-footer">
+        <span id="copyright-text">Copyright &#9400; 2017 Hans Bjerkevoll</span><br>
+        <span>All rights reserved</span>
+    </div>
+
+</footer>
+
+
 
 
 
