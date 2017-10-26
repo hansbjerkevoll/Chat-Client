@@ -13,7 +13,8 @@ include 'includes/chat-functions.inc.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat Client</title>
+    <meta charset='utf-8'>
+    <title>Alpha Chat v0.8</title>
     <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -22,15 +23,28 @@ include 'includes/chat-functions.inc.php';
 <div class = "page-body">
     <div class="sidebar">
 
+        <div class="settings">
+            <button id="settings-button" onclick="toggleSettings()">
+                <img id="settings-img" src="img/settings.png">
+            </button>
+            <div id="settings-content">
+                <a href="#">About</a>
+                <a href="#">Settings</a>
+                <a href="#">Report a problem</a>
+                <a id="logout" href="includes/logout.inc.php" onclick = "return confirm('Do you want to log out?')">Logout</a>
+            </div>
+
+        </div>
+
         <div class="sidebarHeader">
             <div class="logo">
-                Chat Client (Alpha)
+                Alpha Chat v0.8
             </div>
         </div>
 
         <div class="userList">
 
-            <div class="user" onclick='messageLogoChange(this)'>
+            <div class="user highlight" onclick='messageLogoChange(this), highlight(this)'>
                 <img class='user-icon' src= 'img/group-usericon.png'>
                 <div class='user-details'>
                     <b><span class='fullName'>Group Chat</span> <i hidden>(<span class='username'>group</span>)</i></b>
@@ -56,7 +70,11 @@ include 'includes/chat-functions.inc.php';
                     $imgLink = 'img/female-usericon.png';
                 }
 
-                echo "<div class='user' onclick='messageLogoChange(this)'> <img class='user-icon' src= $imgLink ><div class='user-details'><span class='fullName'>" . $fullName . "</span> <i>(<span class='username'>"  .$userName . "</span>)</i></div></div>";
+                echo "<div class='user' 
+                        onclick='messageLogoChange(this), highlight(this)'> 
+                        <img class='user-icon' src= $imgLink >
+                        <div class='user-details'><span class='fullName'>" . $fullName . "</span> <i>(<span class='username'>"  .$userName . "</span>)</i></div>
+                      </div>";
             }
             ?>
         </div>
@@ -80,23 +98,30 @@ include 'includes/chat-functions.inc.php';
 
     </div>
 
-    <div class="logout">
-        <form onsubmit = "return confirm('Do you want to log out?')" action = "includes/logout.inc.php" method = "post">
-            <button id="logoutButton" type="submit" name="submit">
-                <img id="logoutImg" src="img/logout.png">
-            </button>
-        </form>
-    </div>
-
-
 </div>
 
 <script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
 
-
 <script type="text/javascript">
+
+    function highlight(item){
+        var classList = document.getElementsByClassName('highlight');
+        for(i = 0; i < classList.length; i++){
+            classList[i].classList.remove('highlight');
+        }
+        item.classList.add('highlight');
+    }
+
+    //Hide settings when clicked away
+    $(document).ready(function() {
+        $('#settings-button').click(function() {
+            $('#settings-content').slideToggle("medium");
+        });
+    });
+
+
     // Script to change color to active element
     function messageLogoChange(item) {
         document.getElementById('messageLogo').innerHTML = item.getElementsByClassName('user-details')[0].innerHTML;

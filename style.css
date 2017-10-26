@@ -6,7 +6,8 @@ body {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    font-family: "Times New Roman";
+    font-family: Tahoma, "Times New Roman", serif;
+    font-size: 90%;
 }
 
 .page-body{
@@ -106,15 +107,68 @@ body {
 }
 
 .sidebarHeader {
-    font-size: 20px;
+    font-size: 115%;
     font-weight: bolder;
-    border-bottom: solid;
-    border-bottom-width: 2px;
-    height: 60px;
+    border-bottom: solid 2px;
+    height: 45px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*Settings => dropdown menu */
+
+#settings {
+    display: inline-block;
+}
+
+#settings-button {
+    position: absolute;
+    background-color: transparent;
+    border:none;
+    margin-top: 7px;
+    margin-left: 0;
+    cursor: pointer;
+}
+
+#settings-button:hover {
+    filter: brightness(80%);
+}
+
+#settings-button:focus {
+    outline: none;
+}
+
+#settings-img {
+    height: 30px;
+}
+
+#settings-content {
+    display: none;
+    position: absolute;
+    margin-left: 0;
+    margin-top: 47px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#logout {
+    border-top: solid 1px;
+    border-color: #c7c7c7;
+}
+
+#settings-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#settings-content a:hover {
+    background-color: #e0e0e0;
 }
 
 .user {
@@ -125,8 +179,17 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .user:hover {
-    background-color: lightgrey;
+    background-color: #e0e0e0;
+}
+
+.highlight {
+    background-color: #e0e0e0;
+}
+
+.highlight:hover {
+    background-color: #e0e0e0 !important;
 }
 
 .currentUser {
@@ -177,6 +240,7 @@ body {
     resize: none;
     font-size: 20px;
     float: left;
+    font-family: Tahoma, "Times New Roman", serif;
 }
 
 #message:focus {
@@ -191,6 +255,14 @@ body {
     margin-top: 15px;
 }
 
+#sendButton:focus {
+    outline: none;
+}
+
+#sendButton:hover {
+    filter: brightness(80%);
+}
+
 #sendImg {
     cursor: pointer;
     border: none;
@@ -198,9 +270,7 @@ body {
     background-color: transparent;
 }
 
-#sendButton:focus {
-    outline: none;
-}
+
 
 input {
     width: 100%;
@@ -210,7 +280,8 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 125%;
+    font-size: 140%;
+    font-family: Tohoma, serif;
 }
 
 select {
@@ -260,33 +331,6 @@ select {
 .index-link {
     text-decoration: none;
     color: #4CAF50;
-}
-
-/*CSS for the logout button */
-
-.logout {
-    position: absolute;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    bottom: 0;
-    right: 0;'
-border: none;
-    cursor: pointer;
-}
-
-#logoutButton {
-    border: none;
-    background-color: transparent;
-}
-
-#logoutImg {
-    cursor: pointer;
-    border: none;
-    width: 60px;
-}
-
-#logoutImg:hover {
-    filter: brightness(80%);
 }
 
 /*Styling scrollbar for the list of users */
