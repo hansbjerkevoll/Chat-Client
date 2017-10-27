@@ -21,19 +21,21 @@ include 'includes/chat-functions.inc.php';
 <body>
 
 <div class = "page-body">
+
+    <!--- Sidebar-menu -->
     <div class="sidebar">
 
+        <!--- Settings in the sidebar -->
         <div class="settings">
-            <button id="settings-button" onclick="toggleSettings()">
+            <button id="settings-button">
                 <img id="settings-img" src="img/settings.png">
             </button>
             <div id="settings-content">
                 <a href="#">About</a>
                 <a href="#">Settings</a>
-                <a href="#">Report a problem</a>
-                <a id="logout" href="includes/logout.inc.php" onclick = "return confirm('Do you want to log out?')">Logout</a>
+                <a id="report_problem-link" href="#">Report a problem</a>
+                <a id="logout" href="includes/logout.inc.php" onclick = "return confirm('Are you sure you want to log out...?')">Logout</a>
             </div>
-
         </div>
 
         <div class="sidebarHeader">
@@ -42,6 +44,7 @@ include 'includes/chat-functions.inc.php';
             </div>
         </div>
 
+        <!--- List of the users -->
         <div class="userList">
 
             <div class="user highlight" onclick='messageLogoChange(this), highlight(this)'>
@@ -80,6 +83,7 @@ include 'includes/chat-functions.inc.php';
         </div>
     </div>
 
+    <!--- Main chat page -->
     <div class = "page-wrapper">
         <p id = "messageLogo">
             <span class='fullName'> Group Chat</span> <i hidden>(<span class='username'>group</span>)</i>
@@ -95,17 +99,75 @@ include 'includes/chat-functions.inc.php';
             </form>
         </div>
 
+    </div>
 
+
+    <!--- REPORT PROBLEM FORM! -->
+    <div id="report_problem">
+        <div id="report_problem-content">
+            <div id="report_problem-header">
+                <span id="report_problem-header-text"><b>Report a problem</b></span>
+                <span id="close-report_problem">&times;</span>
+            </div>
+            <form action="includes/report-problem-mail.inc.php" method="post" onsubmit="return confirm('Are you sure you want to report the problem?')" id="report_problem-form">
+                <p>Where is the problem?</p>
+                <select id="report_problem-select" name="problem-area">
+                    <option>Messages or Chat</option>
+                    <option>Login</option>
+                    <option>Signup</option>
+                    <option>Settings</option>
+                    <option>Problem reporting</option>
+                    <option>Other... (please specify)</option>
+                </select>
+                <p>What happened?</p>
+                <textarea name="problem" id="problem" placeholder="Explain shortly (140 characters) what happened, and how to recreate the problem..." maxlength="140" required></textarea>
+                <div id="report_problem-button">
+                    <button id="report_problem-cancel" type="button">Cancel</button>
+                    <button id="report_problem-send" type="submit" name="submit">Report problem</button>
+                </div>
+            </form>
+        </div>
     </div>
 
 </div>
+
+
 
 <script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
 
+<!--- Script to handle report problem --->
 <script type="text/javascript">
 
+    // Get the modal
+    var modal = document.getElementById('report_problem');
+    // Get the button that opens the modal
+    var btn = document.getElementById("report_problem-link");
+    // Get the <span> element that closes the modal
+    var span = document.getElementById("close-report_problem");
+    //Cancel button
+    var cancel = document.getElementById("report_problem-cancel");
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+    cancel.onclick = function() {
+        modal.style.display = "none";
+    };
+
+</script>
+
+
+<script type="text/javascript">
+
+    //Highlight the clicked user
     function highlight(item){
         var classList = document.getElementsByClassName('highlight');
         for(i = 0; i < classList.length; i++){
@@ -114,13 +176,25 @@ include 'includes/chat-functions.inc.php';
         item.classList.add('highlight');
     }
 
-    //Hide settings when clicked away
+    /*
+    //Toggle settings-menu
     $(document).ready(function() {
         $('#settings-button').click(function() {
             $('#settings-content').slideToggle("medium");
         });
     });
+    */
 
+    $(document).click(function(event) {
+        if(event.target.id === "settings-img") {
+            $('#settings-content').slideToggle("medium");
+        }
+        else{
+            if($('#settings-content').is(":visible")) {
+                $('#settings-content').slideToggle("medium");
+            }
+        }
+    });
 
     // Script to change color to active element
     function messageLogoChange(item) {
@@ -137,9 +211,6 @@ include 'includes/chat-functions.inc.php';
         });
     });
 </script>
-
-
-
 
 </body>
 </html>

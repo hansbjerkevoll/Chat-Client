@@ -12,6 +12,15 @@ if(isset($_GET['chatPartner']) && !empty($_GET['chatPartner'])){
     $messages = get_msg($chatPartner, $conn);
 
     foreach ($messages as $message){
+
+        $sender_username = $message[0];
+
+        //Get full name of sender
+        $sqlSender = "SELECT * FROM Users WHERE Username = '$sender_username'";
+        $resultSender = mysqli_query($conn, $sqlSender);
+        $rowSender = mysqli_fetch_assoc($resultSender);
+        $sender_fullname = $rowSender['FirstName'] . " " . $rowSender['LastName'];
+
         if($_SESSION['Username'] == $message[0]){
             echo "<div class='message' style='position: relative;
               word-wrap: break-word;
@@ -22,7 +31,7 @@ if(isset($_GET['chatPartner']) && !empty($_GET['chatPartner'])){
               padding: 5px;
               margin-top: 10px;
               margin-bottom: 10px;'>
-              <b>" . $message[0] . " (" . $message[1] . ")" ."</b><br>" . $message[2] . "</div>";
+              <b>" . $sender_fullname . " (" . $message[1] . ")" ."</b><br>" . $message[2] . "</div>";
         }
         else{
             echo "<div class='message' style='position: relative; 
@@ -33,7 +42,7 @@ if(isset($_GET['chatPartner']) && !empty($_GET['chatPartner'])){
               padding: 5px;
               margin-top: 10px;
               margin-bottom: 10px'>
-              <b>" . $message[0] . " (" . $message[1] . ")" ."</b><br>" . $message[2] . "</div>";
+              <b>" . $sender_fullname . " (" . $message[1] . ")" ."</b><br>" . $message[2] . "</div>";
         }
 
     }

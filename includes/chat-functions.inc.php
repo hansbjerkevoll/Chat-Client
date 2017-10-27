@@ -33,7 +33,6 @@ function get_msg($chatPartner, $conn){
             $message = nl2br(htmlspecialchars($row['Message']));
 
             $messages[] = array($row['Sender'], $displayTime, $message);
-
         }
 
         return $messages;

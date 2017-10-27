@@ -37,7 +37,7 @@ session_start();
             <input type = password name = "password" placeholder = "Password" required>
             <input type = password name = "passwordCheck" placeholder = "Retype password" required>
             <input type = "email"  name = "email" placeholder = "E-mail" required>
-            <select name="gender">
+            <select name="gender" id="gender-select">
                 <option disabled selected hidden>Gender:</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>

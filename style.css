@@ -235,7 +235,7 @@ body {
 }
 
 #message {
-    width: 93%;
+    width: calc(100% - 50px);
     height: 80px;
     resize: none;
     font-size: 20px;
@@ -284,7 +284,7 @@ input {
     font-family: Tohoma, serif;
 }
 
-select {
+#gender-select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -294,8 +294,6 @@ select {
     box-sizing: border-box;
     font-size: 125%;
 }
-
-
 
 .submitButton {
     width: 100%;
@@ -312,6 +310,117 @@ select {
 .submitButton:hover {
     background-color: #45A049;
 }
+
+
+/* CSS for the REPORT PROBLEM FORM */
+
+#report_problem {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#report_problem-content {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: -160px 0 0 -260px;
+    background-color: #f9f9f9;
+    border: 1px solid #c7c7c7;
+    border-radius: 10px;
+}
+
+#report_problem-header {
+    background-color: #e0e0e0;
+    width: 100%;
+    height: 30px;
+    border-top: black;
+    border-right: black;
+    border-left: black;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+#report_problem-header-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 6px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#report_problem-form {
+    margin: 10px;
+}
+
+#problem {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    float: left;
+    font-family: Tahoma, "Times New Roman", serif;
+}
+
+#report_problem-button {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: solid 1px #c7c7c7;
+}
+
+#report_problem-cancel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 120px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    height: 25px;
+    border: none;
+    background-color: #c7c7c7;
+    cursor: pointer;
+}
+
+#report_problem-send {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 5px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    height: 26px;
+    border: none;
+    background-color: #4668a5;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+#close-report_problem {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1px;
+    margin-right: 7px;
+    color: #aaaaaa;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#close-report_problem:hover {
+    filter: brightness(80%);
+}
+
 
 
 /* Links on the login page (register and forgotten password) */
@@ -381,9 +490,3 @@ select {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #d2d2d2;
 }
-
-
-
-
-
-
