@@ -1,6 +1,5 @@
 ToDo-list:
 
-1) Ikke scrolle ned hvert sekund lol. Kun på pageload evt ny melding
-2) Slippe å måtte gå inn i database for å resete
-3) Mulighet til å chatte med kun en person
-4) Email-validering og forgotten password
+1) Automatisk oppdatering av brukere
+2) Notifikasjoner! Woop
+3) Email-validering og forgotten password

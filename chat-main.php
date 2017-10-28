@@ -17,6 +17,15 @@ include 'includes/chat-functions.inc.php';
     <title>Alpha Chat v0.8</title>
     <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <?php
+    //Scripts for runnning popup boxes
+    if(isset($_SESSION['popup']) && $_SESSION['popup']){
+        $_SESSION['popup'] = False;
+        $message = $_SESSION['popup-message'];
+        echo "<script> window.alert('$message')</script>";
+    }
+    ?>
 </head>
 <body>
 
@@ -33,8 +42,9 @@ include 'includes/chat-functions.inc.php';
             <div id="settings-content">
                 <a href="#">About</a>
                 <a href="#">Settings</a>
-                <a id="report_problem-link" href="#">Report a problem</a>
-                <a id="logout" href="includes/logout.inc.php" onclick = "return confirm('Are you sure you want to log out...?')">Logout</a>
+                <a href="#" id="report_problem-link">Report a problem</a>
+                <a href="includes/reset-chat.inc.php" onclick="return confirm('Are you sure you want to reset the chat?\nNOTE: This will delete all sent messages')">Reset Chat</a>
+                <a href="includes/logout.inc.php" id="logout" onclick = "return confirm('Are you sure you want to log out...?')">Logout</a>
             </div>
         </div>
 

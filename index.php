@@ -16,7 +16,6 @@ if(isset($_SESSION['Username'])){
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <?php
-
     //Scripts for runnning popup boxes
     if(isset($_SESSION['popup']) && $_SESSION['popup']){
         $_SESSION['popup'] = False;
@@ -57,12 +56,6 @@ if(isset($_SESSION['Username'])){
     </div>
 
 </footer>
-
-
-
-
-
-
 
 </body>
 </html>
