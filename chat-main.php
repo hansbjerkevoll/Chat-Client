@@ -13,25 +13,55 @@ include 'includes/chat-functions.inc.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat Client</title>
+    <meta charset='utf-8'>
+    <title>Alpha Chat v0.8</title>
+    <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <?php
+    //Scripts for runnning popup boxes
+    if(isset($_SESSION['popup']) && $_SESSION['popup']){
+        $_SESSION['popup'] = False;
+        $message = $_SESSION['popup-message'];
+        echo "<script> window.alert('$message')</script>";
+    }
+    ?>
 </head>
 <body>
 
 <div class = "page-body">
+
+    <!--- Sidebar-menu -->
     <div class="sidebar">
 
-        <div class="sidebarHeader">
-            <div class="logo">
-                Chat Client (Alpha)
+        <!--- Settings in the sidebar -->
+        <div class="settings">
+            <button id="settings-button" title="Settings">
+                <img id="settings-img" src="img/settings.png">
+            </button>
+            <div id="settings-content">
+                <a href="#">About</a>
+                <a href="#">Settings</a>
+                <a href="#" id="report_problem-link">Report a problem</a>
+                <a href="includes/reset-chat.inc.php" onclick="return confirm('Are you sure you want to reset the chat?\nNOTE: This will delete all sent messages')">Reset Chat</a>
+                <a href="includes/logout.inc.php" id="logout" onclick = "return confirm('Are you sure you want to log out...?')">Logout</a>
             </div>
         </div>
 
+        <div class="sidebarHeader">
+            <div class="logo">
+                Alpha Chat v0.8
+            </div>
+        </div>
+
+        <!--- List of the users -->
         <div class="userList">
 
-            <div class="user" onclick='messageLogoChange(this)'>
-                <img class='user-icon' src= 'img/male-usericon.png'>
-                <div class='user-details'> <b>Group Chat</b></div>
+            <div class="user highlight" onclick='messageLogoChange(this), highlight(this)'>
+                <img class='user-icon' src= 'img/group-usericon.png'>
+                <div class='user-details'>
+                    <b><span class='fullName'>Group Chat</span> <i hidden>(<span class='username'>group</span>)</i></b>
+                </div>
             </div>
 
             <?php
@@ -53,85 +83,66 @@ include 'includes/chat-functions.inc.php';
                     $imgLink = 'img/female-usericon.png';
                 }
 
-                echo "<div class='user' onclick='messageLogoChange(this)'> <img class='user-icon' src= $imgLink ><div class='user-details'>" . $fullName . " <i>("  .$userName . ")</i></div></div>";
+                echo "<div class='user' 
+                        onclick='messageLogoChange(this), highlight(this)'> 
+                        <img class='user-icon' src= $imgLink >
+                        <div class='user-details'><span class='fullName'>" . $fullName . "</span> <i>(<span class='username'>"  .$userName . "</span>)</i></div>
+                      </div>";
             }
             ?>
         </div>
 
-
     </div>
 
+    <!--- MAIN CHAT PAGE -->
     <div class = "page-wrapper">
-        <p id = "messageLogo">Group Chat</p>
+        <p id = "messageLogo">
+            <span class='fullName'> Group Chat</span> <i hidden>(<span class='username'>group</span>)</i>
+        </p>
+        <div>
+            <button id="chat-options-button">
+                <img id="chat-options-img" src="img/chat-options.png">
+            </button>
+            <div id="chat-options-content">
+                <a href="#">Report user</a>
+                <a href="#" id="sendImg-link">Send image</a>
+            </div>
+        </div>
+
         <div id = "messages"></div>
 
-        <form action="#" method="post" id="message-form">
-            <pre><textarea name = "message" placeholder="Type a message..." id = "message" required></textarea></pre>
-            <button class="submitButton" type = "submit" name="submit">Send</button>
-        </form>
-
+        <div>
+            <form action="#" method="post" id="message-form">
+                <textarea name = "message" placeholder="Type a message..." id = "message" required autofocus></textarea>
+                <button id="sendImg-Button" type="submit" title="Send image">
+                    <img class="messageIcon" id="sendIcon" src="img/send-icon.png">
+                    <img class="messageIcon" id="sendImg" src="img/image-icon.png">
+                </button>
+            </form>
+        </div>
     </div>
 
-    <div class="logout">
-        <form onsubmit = "return confirm('Do you want to log out?')" action = "includes/logout.inc.php" method = "post">
-            <button id="logoutButton" type="submit" name="submit">
-                <img id="logoutImg" src="img/logout.png">
-            </button>
-        </form>
-    </div>
+    <!--- SEND IMAGE -->
+    <?php include 'modal-content/send-image.php'?>
 
+    <!--- REPORT PROBLEM FORM! -->
+    <?php include 'modal-content/report-problem.php'?>
 
 </div>
 
-
-<!-- Script to change color to active element-->
-<script>
-
-    function messageLogoChange(item) {
-        document.getElementById('messageLogo').innerHTML = item.getElementsByClassName('user-details')[0].innerHTML;
-    }
-
-    function hoverColor(item) {
-        item.style.backgroundColor = 'lightgrey';
-    }
-
-    function resetColor(item) {
-        item.style.backgroundColor = '#f9f9f9';
-    }
-
-    var divItems = document.getElementsByClassName("user");
-
-    function selected(item){
-        this.clear();
-        item.style.backgroundColor = 'lightgrey';
-    }
-
-    function clear(){
-        for(var i=0; i < divItems.length; i++){
-            var item = divItems[i];
-            item.style.backgroundColor = '#f9f9f9';
-        }
-    }
-</script>
-
+<!--- JQuery Functions -->
 <script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
-<script type="text/javascript" src="scripts/js/auto-scroll.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
 
+<!--- Script to diplay send image -->
+<script type="text/javascript" src="scripts/js/send-image.js"></script>
 
+<!--- Script to handle report problem --->
+<script type="text/javascript" src="scripts/js/report-problem.js"></script>
 
-<!-- Script to send message when enter is clicked-->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#message').keypress(function(e){
-            if(e.which == 13 && !e.shiftKey){
-                // submit via ajax or
-                $('#message-form').submit();
-            }
-        });
-    });
-</script>
+<!-- Various functions -->
+<script type="text/javascript" src="scripts/js/functions.js"></script>
 
 </body>
 </html>

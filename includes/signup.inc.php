@@ -15,9 +15,10 @@ if(isset($_POST['submit'])){
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $passwordCheck = mysqli_real_escape_string($conn, $_POST['passwordCheck']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 
     //Checking for empty fields
-    if(empty($username) || empty($password) || empty($passwordCheck) || empty($email)){
+    if(empty($username) || empty($password) || empty($passwordCheck) || empty($email) || empty($gender)){
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "Missing fields";
         header("Location: ../signup.php");
@@ -65,7 +66,7 @@ if(isset($_POST['submit'])){
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     //Inserting data into the database
-    $sql = "INSERT INTO Users (FirstName, LastName, Username, Email, Password) VAlUES ('$firstname', '$lastname', '$username', '$email', '$password')";
+    $sql = "INSERT INTO Users (FirstName, LastName, Username, Gender, Email, Password) VAlUES ('$firstname', '$lastname', '$username', '$gender', '$email', '$password')";
 
     if (mysqli_query($conn, $sql)) {
 

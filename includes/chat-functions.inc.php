@@ -2,45 +2,108 @@
 
 session_start();
 
-function get_msg($conn){
+function get_msg($chatPartner, $conn){
 
-    $sql = "SELECT * FROM Chat";
-    $result = mysqli_query($conn, $sql);
-
-
+    $user = $_SESSION['Username'];
+    $chatPartner = mysqli_real_escape_string($conn, $chatPartner);
     $messages = array();
 
-    while($row = mysqli_fetch_assoc($result)){
+    //If chatPartner is group => Fetch everything sent to group
+    if($chatPartner == 'group'){
+        $sql = "SELECT * FROM Chat WHERE Receiver = 'group'";
+        $result = mysqli_query($conn, $sql);
+        while($row = mysqli_fetch_assoc($result)){
+            //Get time message was sent
+            $timeSent = strtotime($row['TimeSent']);
 
-        //Get time message was sent
-        $timeSent = strtotime($row['TimeSent']);
+            //Checking if text was sent last year
+            if((strtotime(date('Y', time()))) > (strtotime(date('Y', $timeSent)))){
+                $displayTime = date('jS M Y H:i', $timeSent);
+            }
+            //Checking if sent more than 24 hours ago
+            elseif($timeSent < time() - (24*3600)){
+                $displayTime = date('jS M H:i', $timeSent);
+            }
+            //If not display hour and minute
+            else{
+                $displayTime = date('H:i', $timeSent);
+            }
 
-        //Checking if text was sent last year
-        if((strtotime(date('Y', time()))) > (strtotime(date('Y', $timeSent)))){
-            $displayTime = date('jS M Y H:i', $timeSent);
+            //Converting to proper string
+            $message = nl2br(htmlspecialchars($row['Message']));
+
+            //Checking if !image command is used to send image
+            if(substr($message, 0, 7) == "!image "){
+                $imgLink = substr($message, 7, strlen($message));
+                if(file_exists($imgLink)){
+                    $message = "<div style='width: 100%; margin-top: 10px;'> <img src = '" . $imgLink . "' style='max-width: 100%'></div>";
+                }
+                else {
+                    $message = "<i>Image not found...</i>";
+                }
+
+            }
+            elseif (substr($message, 0, 5) == "!img "){
+                $imgLink = substr($message, 5, strlen($message));
+                if(file_exists($imgLink)){
+                    $message = "<div style='width: 100%; margin-top: 10px;'> <img src = '" . $imgLink . "' style='max-width: 100%'></div>";
+                }
+                else {
+                    $message = "<i>Image not found...</i>";
+                }
+            }
+
+            if (filter_var($message, FILTER_VALIDATE_URL)) {
+                $message = "<div><a href='$message' target='_blank'>$message</a> </div>";
+            }
+
+            $messages[] = array($row['Sender'], $displayTime, $message);
         }
-        //Checking if sent more than 24 hours ago
-        elseif($timeSent < time() - (24*3600)){
-            $displayTime = date('jS M H:i', $timeSent);
-        }
-        //If not display hour and minute
-        else{
-            $displayTime = date('H:i', $timeSent);
-        }
 
-        //Converting to proper string
-        $message = nl2br(htmlspecialchars($row['Message']));
-
-        $messages[] = array($row['Sender'], $displayTime, $message);
+        return $messages;
     }
 
-    return $messages;
+    //If not => Get everyting sent from user to chatPartner or from chatPartner to user
+    else{
+        $sql = "SELECT * FROM Chat";
+        $result = mysqli_query($conn, $sql);
+
+        while($row = mysqli_fetch_assoc($result)){
+
+            if(($row['Sender'] == $user && $row['Receiver'] == $chatPartner) || ($row['Sender'] == $chatPartner && $row['Receiver'] == $user)){
+                //Get time message was sent
+                $timeSent = strtotime($row['TimeSent']);
+
+                //Checking if text was sent last year
+                if((strtotime(date('Y', time()))) > (strtotime(date('Y', $timeSent)))){
+                    $displayTime = date('jS M Y H:i', $timeSent);
+                }
+                //Checking if sent more than 24 hours ago
+                elseif($timeSent < time() - (24*3600)){
+                    $displayTime = date('jS M H:i', $timeSent);
+                }
+                //If not display hour and minute
+                else{
+                    $displayTime = date('H:i', $timeSent);
+                }
+
+                //Converting to proper string
+                $message = nl2br(htmlspecialchars($row['Message']));
+
+                $messages[] = array($row['Sender'], $displayTime, $message);
+            }
+        }
+
+        return $messages;
+    }
+
 }
 
-function send_msg($message, $conn){
+function send_msg($receiver, $message, $conn){
 
     $sender = $_SESSION['Username'];
     $message = mysqli_real_escape_string($conn, $message);
+    $receiver = mysqli_real_escape_string($conn, $receiver);
 
     if(!(empty($sender) || empty($message))){
 
@@ -48,7 +111,7 @@ function send_msg($message, $conn){
         $currentDate = date('Y-m-d G-i-s',time());
 
         //Insert data into database
-        $sql = "INSERT INTO Chat (Sender, TimeSent, Message) VALUES ('$sender', '$currentDate' ,'$message')";
+        $sql = "INSERT INTO Chat (Sender, Receiver, TimeSent, Message) VALUES ('$sender', '$receiver', '$currentDate' ,'$message')";
 
         if(mysqli_query($conn, $sql)){
             return True;
