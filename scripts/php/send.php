@@ -6,6 +6,11 @@ include '../../includes/chat-functions.inc.php';
 if(isset($_GET['message']) && !empty($_GET['message'] && isset($_GET['receiver']) && !empty($_GET['receiver']))){
     $receiver = $_GET['receiver'];
     $message = $_GET['message'];
-    send_msg($receiver, $message, $conn);
+    if(send_msg($receiver, $message, $conn)){
+        echo "True";
+    }
+    else{
+        echo "False";
+    }
 }
 

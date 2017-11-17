@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 //Checking if user has pressed sign-up button. If not => send to index.php
 if(isset($_POST['submit'])){
@@ -11,6 +13,9 @@ if(isset($_POST['submit'])){
     //Getting login input
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    //Saving username to put in login form if login fails
+    $_SESSION['username_input'] = $username;
 
     //Checking if input is empty
     if(empty($username) || empty($password)){
@@ -38,6 +43,10 @@ if(isset($_POST['submit'])){
                     header("Location: ../index.php");
                     exit();
                 }
+
+                //Deleting the input username
+                unset($_SESSION['username_input']);
+
                 //Logging in the user
                 $_SESSION['UserID'] = $row['UserID'];
                 $_SESSION['FirstName'] = $row['FirstName'];

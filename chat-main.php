@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 if(!isset($_SESSION['Username'])){
     header("Location: index.php");
@@ -104,8 +107,9 @@ include 'includes/chat-functions.inc.php';
                 <img id="chat-options-img" src="img/chat-options.png">
             </button>
             <div id="chat-options-content">
-                <a href="#">Report user</a>
+                <a href="#" id="sendEmoji-link">Send emoji</a>
                 <a href="#" id="sendImg-link">Send image</a>
+                <a href="#">Report user</a>
             </div>
         </div>
 
@@ -116,7 +120,6 @@ include 'includes/chat-functions.inc.php';
                 <textarea name = "message" placeholder="Type a message..." id = "message" required autofocus></textarea>
                 <button id="sendImg-Button" type="submit" title="Send image">
                     <img class="messageIcon" id="sendIcon" src="img/send-icon.png">
-                    <img class="messageIcon" id="sendImg" src="img/image-icon.png">
                 </button>
             </form>
         </div>
@@ -124,6 +127,9 @@ include 'includes/chat-functions.inc.php';
 
     <!--- SEND IMAGE -->
     <?php include 'modal-content/send-image.php'?>
+
+    <!--- SEND EMOJI -->
+    <?php include 'modal-content/send-emoji.php'?>
 
     <!--- REPORT PROBLEM FORM! -->
     <?php include 'modal-content/report-problem.php'?>
@@ -135,14 +141,11 @@ include 'includes/chat-functions.inc.php';
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
 
-<!--- Script to diplay send image -->
-<script type="text/javascript" src="scripts/js/send-image.js"></script>
-
-<!--- Script to handle report problem --->
-<script type="text/javascript" src="scripts/js/report-problem.js"></script>
-
 <!-- Various functions -->
 <script type="text/javascript" src="scripts/js/functions.js"></script>
+
+<!--- Send Emoji -->
+<script type="text/javascript" src="scripts/js/send-emoji.js"></script>
 
 </body>
 </html>

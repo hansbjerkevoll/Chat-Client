@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 //Checking if user has pressed sign-up button. If not => send to index.php
 if(isset($_POST['submit'])){

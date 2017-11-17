@@ -27,10 +27,20 @@ body {
     border-radius: 15px;
     background-color: #f9f9f9;
     padding: 20px;
-    height: 85%;
+    height: 90%;
 }
 
-
+.input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 140%;
+    font-family: Tohoma, serif;
+}
 /* Footer on index page*/
 
 #index-footer {
@@ -54,7 +64,7 @@ body {
     position: fixed;
     height: 70px;
     left: 100px;
-    bottom: 37px;
+    bottom: 40px;
 }
 
 #info-list {
@@ -218,7 +228,6 @@ body {
     padding-bottom: 10px;
 }
 
-
 /*Chat options */
 #chat-options-button {
     position: absolute;
@@ -237,7 +246,7 @@ body {
 }
 
 #chat-options-img:hover {
-    filter: brightness(500%);
+    filter: brightness(80%);
 }
 
 #chat-options-content {
@@ -290,7 +299,7 @@ body {
     position: absolute;
     float: right;
     background-color: transparent;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 #sendImg-Button:focus {
@@ -304,24 +313,12 @@ body {
 .messageIcon {
     cursor: pointer;
     border: none;
-    width: 60px;
+    width: 65px;
     background-color: transparent;
 }
 
 #sendImg {
     display: none;
-}
-
-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 140%;
-    font-family: Tohoma, serif;
 }
 
 #gender-select {
@@ -346,7 +343,6 @@ input {
     cursor: pointer;
 }
 
-
 .submitButton:hover {
     background-color: #45A049;
 }
@@ -367,9 +363,9 @@ input {
     width: 500px;
     height: 300px;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
-    margin: -160px 0 0 -260px;
+    margin: -150px 0 0 -250px;
     background-color: #f9f9f9;
     border: 1px solid #c7c7c7;
     border-radius: 10px;
@@ -402,17 +398,60 @@ input {
     right: 0;
     margin-top: 1px;
     margin-right: 7px;
-    color: #aaaaaa;
+    color: #868686;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
 }
 
 .close-modal-content:hover {
-    filter: brightness(80%);
+    color: #595959;
+}
+
+.modal-content-button {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: solid 1px #c7c7c7;
+}
+
+.modal-content-cancel {
+    float: right;
+    margin: 12px 5px 5px 5px;
+    border-radius: 5px;
+    height: 25px;
+    border: none;
+    background-color: #c9c9c9;
+    cursor: pointer;
+}
+
+.modal-content-send {
+    float: right;
+    margin: 12px 5px 5px 5px;
+    border-radius: 5px;
+    height: 26px;
+    border: none;
+    background-color: #4668a5;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+.modal-content-cancel:hover {
+    background-color: #b3b3b3;
+}
+
+.modal-content-send:hover {
+    background-color: #3c598e;
 }
 
 /*CSS FOR SEND IMAGE */
+
+#sendImg_page-content {
+    height: 500px;
+    margin: -250px 0 0 -250px;
+}
 
 #sendImg_page-header {
     background-color: #e0e0e0;
@@ -425,6 +464,42 @@ input {
     border-top-left-radius: 10px;
 }
 
+#sendImg_form {
+    margin: 10px;
+}
+
+#img-file {
+    margin-top: 10px;
+}
+
+#display-image {
+    margin-top: 10px;
+    max-height: 340px;
+    max-width: 100%;
+}
+
+/* CSS FOR THE EMOJI LIST */
+#sendEmoji_page-content {
+    height: 600px;
+    margin: -300px 0 0 -250px;
+}
+
+#emoji-list {
+    margin: 0 21px 0 21px;
+    height: 570px;
+    overflow: auto;
+}
+
+.emoji {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.emoji:hover {
+    background-color: transparent;
+    filter: brightness(90%);
+}
 
 /* CSS for the REPORT PROBLEM FORM */
 #report_problem-form {
@@ -439,42 +514,6 @@ input {
     font-family: Tahoma, "Times New Roman", serif;
 }
 
-#report_problem-button {
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-top: solid 1px #c7c7c7;
-}
-
-#report_problem-cancel {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-right: 120px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    height: 25px;
-    border: none;
-    background-color: #c7c7c7;
-    cursor: pointer;
-}
-
-#report_problem-send {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-right: 5px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    height: 26px;
-    border: none;
-    background-color: #4668a5;
-    color: #f9f9f9;
-    cursor: pointer;
-}
-
 /* Links on the login page (register and forgotten password) */
 .index-link:hover {
     color: #45A049;
@@ -484,7 +523,6 @@ input {
     float: left;
 }
 
-
 #password-link {
     float: right;
 }
@@ -492,6 +530,41 @@ input {
 .index-link {
     text-decoration: none;
     color: #4CAF50;
+}
+
+
+/* Random shit */
+#signup-profile-pic {
+    height: 50px;
+    padding-top: 25px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+#profilepic_page-content {
+    height: 600px;
+    margin: -300px 0 0 -250px;
+}
+
+#profile-pic-list {
+    margin: 10px 22px 0 22px;
+    height: 570px;
+    overflow: auto;
+}
+
+.profile-pic {
+    width: 72px;
+    height: 72px;
+    cursor: pointer;
+}
+
+.profile-pic:hover {
+    background-color: transparent;
+    filter: brightness(90%);
+}
+
+#signup-profile-pic:hover {
+    filter: brightness(90%);
 }
 
 /*Styling scrollbar for the list of users */
@@ -537,6 +610,27 @@ input {
 }
 
 #messages::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #d2d2d2;
+}
+
+/*Styling the scrollbar for the emojilist */
+#emoji-list::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#emoji-list::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#emoji-list::-webkit-scrollbar-thumb
 {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
