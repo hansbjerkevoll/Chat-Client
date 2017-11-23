@@ -19,7 +19,9 @@ include 'includes/chat-functions.inc.php';
     <meta charset='utf-8'>
     <title>Alpha Chat v0.8</title>
     <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/modal-content.css">
 
     <?php
     //Scripts for runnning popup boxes
@@ -58,7 +60,7 @@ include 'includes/chat-functions.inc.php';
         </div>
 
         <!--- List of the users -->
-        <div class="userList">
+        <div class="userList scrollbar">
 
             <div class="user highlight" onclick='messageLogoChange(this), highlight(this)'>
                 <img class='user-icon' src= 'img/group-usericon.png'>
@@ -115,7 +117,7 @@ include 'includes/chat-functions.inc.php';
             </div>
         </div>
 
-        <div id = "messages"></div>
+        <div id = "messages" class="scrollbar"></div>
 
         <div id="message-input">
             <form action="#" method="post" id="message-form">

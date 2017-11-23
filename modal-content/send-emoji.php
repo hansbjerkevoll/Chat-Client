@@ -4,7 +4,7 @@
             <span class="modal-content-header-text" id="sendEmoji_page-text"><b>Send emoji</b></span>
             <span class="close-modal-content" id="close-sendEmoji_page">&times;</span>
         </div>
-        <div id="emoji-list">
+        <div id="emoji-list" class="scrollbar">
             <p style="margin: 5px 0 5px 0">Favourites: </p>
             <img class="emoji" src="img/emoji/shyly_smiling.png">
             <img class="emoji" src="img/emoji/heart_eyes.png">

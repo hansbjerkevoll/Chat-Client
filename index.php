@@ -16,7 +16,9 @@ if(isset($_SESSION['Username'])){
 <head>
     <title>Chat Client</title>
     <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
 
     <?php
     //Scripts for runnning popup boxes

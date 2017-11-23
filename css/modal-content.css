@@ -1,0 +1,204 @@
+/* GENERAL MODAL CONTENT */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -250px;
+    background-color: #f9f9f9;
+    border: 1px solid #c7c7c7;
+    border-radius: 10px;
+}
+
+.modal-content-header {
+    background-color: #e0e0e0;
+    width: 100%;
+    height: 30px;
+    border-top: black;
+    border-right: black;
+    border-left: black;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+.modal-content-header-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 6px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.close-modal-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1px;
+    margin-right: 7px;
+    color: #868686;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal-content:hover {
+    color: #595959;
+}
+
+.modal-content-button {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: solid 1px #c7c7c7;
+}
+
+.modal-content-cancel {
+    float: right;
+    margin: 12px 5px 5px 5px;
+    border-radius: 5px;
+    height: 25px;
+    border: none;
+    background-color: #c9c9c9;
+    cursor: pointer;
+}
+
+.modal-content-send {
+    float: right;
+    margin: 12px 5px 5px 5px;
+    border-radius: 5px;
+    height: 26px;
+    border: none;
+    background-color: #4668a5;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+.modal-content-cancel:hover {
+    background-color: #b3b3b3;
+}
+
+.modal-content-send:hover {
+    background-color: #3c598e;
+}
+
+
+
+/* EMOJI LIST */
+#sendEmoji_page-content {
+    height: 600px;
+    margin: -300px 0 0 -250px;
+}
+
+#emoji-list {
+    margin: 0 21px 0 21px;
+    height: 570px;
+    overflow: auto;
+}
+
+.emoji {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.emoji:hover {
+    background-color: transparent;
+    filter: brightness(90%);
+}
+
+/* REPORT PROBLEM FORM */
+#report_problem-form {
+    margin: 10px;
+}
+
+#problem {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    float: left;
+    font-family: Tahoma, "Times New Roman", serif;
+}
+
+
+
+/* PROFILE PICTURES */
+
+#profilepic_page-content {
+    height: 600px;
+    margin: -300px 0 0 -250px;
+}
+
+#profile-pic-list {
+    margin: 0 20px 0 20px;
+    height: 570px;
+    overflow: auto;
+}
+
+.profile-pic {
+    width: 82px;
+    height: 82px;
+    cursor: pointer;
+}
+
+.profile-pic:hover {
+    background-color: transparent;
+    filter: brightness(90%);
+}
+
+
+/*CSS FOR SEND IMAGE */
+
+#sendImg_page-content {
+    height: 500px;
+    margin: -250px 0 0 -250px;
+}
+
+#sendImg_page-header {
+    background-color: #e0e0e0;
+    width: 100%;
+    height: 30px;
+    border-top: black;
+    border-right: black;
+    border-left: black;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#sendImg_form {
+    margin: 10px;
+}
+
+#img-file {
+    margin-top: 10px;
+}
+
+#display-image {
+    margin-top: 10px;
+    max-height: 340px;
+    max-width: 100%;
+}
+
+
+/* CSS for the SETTINGS */
+#modal-settings-content {
+    height: 600px;
+    margin: -300px 0 0 -250px;
+}
+
+
+

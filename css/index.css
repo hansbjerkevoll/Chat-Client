@@ -1,0 +1,26 @@
+/* LOGO ON INDEX PAGE */
+
+.indexLogo {
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+
+/* Links on the login page (register and forgotten password) */
+.index-link:hover {
+    color: #45A049;
+}
+
+#registered-link {
+    float: left;
+}
+
+#password-link {
+    float: right;
+}
+
+.index-link {
+    text-decoration: none;
+    color: #4CAF50;
+}

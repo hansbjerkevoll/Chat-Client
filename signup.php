@@ -11,7 +11,8 @@ if(!isset($_SESSION)) {
 <head>
     <title>Chat client</title>
     <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/modal-content.css">
 
     <?php
 
@@ -39,7 +40,8 @@ if(!isset($_SESSION)) {
             <input type = "email"  class="input" style="margin-bottom: 15px" name = "email" placeholder = "E-mail" required>
             <input type="radio" value="Male" name="gender" title="male" required> <label style="font-size: 140%; font-family: Tohoma, serif;">Male</label>
             <input type="radio" value="Female" name="gender" title="male" required> <label style="font-size: 140%; font-family: Tohoma, serif;">Female</label>
-            <br><label style="font-size: 140%; font-family: Tohoma, serif; height: 50px;">Profile picture: </label> <img src="img/male-usericon.png" id="signup-profile-pic">
+            <div style="font-size: 140%; font-family: Tohoma, serif; padding-top: 30px; padding-bottom: 15px">Profile picture: </div>
+            <img style="position: absolute; left: 140px; bottom: 100px" src= "img/male-usericon.png" id="signup-profile-pic">
             <input type="hidden" id="hidden-profile-pic-input" name="profile-pic" value="http://folk.ntnu.no/hansbj/Chat-Client/img/male-usericon.png">
             <button class="submitButton" type = "submit" style="margin-top: 15px" name = "submit">Sign up</button>
         </form>

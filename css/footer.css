@@ -1,0 +1,56 @@
+/* Footer on index page*/
+
+#index-footer {
+    position: absolute;
+    height: 100px;
+    background-color: #4668A5;
+    width: 100%;
+    bottom: 0;
+}
+
+#footer-logo {
+    position: fixed;
+    height: 70px;
+    left: 0;
+    bottom: 0;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+#info {
+    position: fixed;
+    height: 70px;
+    left: 100px;
+    bottom: 40px;
+}
+
+#info-list {
+    list-style-type: none;
+    font-size: large;
+}
+
+.info-list-items {
+    padding: 3px;
+}
+
+.info-link {
+    text-decoration: none;
+    color: #f9f9f9;
+}
+
+.info-link:hover {
+    color: #c7c7c7;
+}
+
+#copyright-footer {
+    position: absolute;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    margin-right: 15px;
+    margin-bottom: 25px;
+}
+
+#copyright-text {
+    font-size: 150%;
+}

@@ -4,7 +4,7 @@
             <span class="modal-content-header-text" id="profilepic_page-text"><b>Choose profile pic</b></span>
             <span class="close-modal-content" id="close-profilepic_page">&times;</span>
         </div>
-        <div id="profile-pic-list">
+        <div id="profile-pic-list" class="scrollbar">
             <p>Default:</p>
             <img class="profile-pic" src="img/male-usericon.png">
             <img class="profile-pic" src="img/female-usericon.png">
