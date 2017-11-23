@@ -1,9 +1,19 @@
 <?php
 
+<<<<<<< HEAD
 if(isset($_POST['submit'])){
 
     include_once 'database.inc.php';
     session_start();
+=======
+if(!isset($_SESSION)) {
+    session_start();
+}
+
+if(isset($_POST['submit'])){
+
+    include_once 'database.inc.php';
+>>>>>>> origin/master
 
     $problemArea = mysqli_real_escape_string($conn, $_POST['problem-area']);
     $problem = mysqli_real_escape_string($conn, $_POST['problem']);

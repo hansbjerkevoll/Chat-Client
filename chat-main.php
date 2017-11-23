@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 if(!isset($_SESSION['Username'])){
     header("Location: index.php");
@@ -36,7 +39,11 @@ include 'includes/chat-functions.inc.php';
 
         <!--- Settings in the sidebar -->
         <div class="settings">
+<<<<<<< HEAD
             <button id="settings-button">
+=======
+            <button id="settings-button" title="Settings">
+>>>>>>> origin/master
                 <img id="settings-img" src="img/settings.png">
             </button>
             <div id="settings-content">
@@ -91,23 +98,40 @@ include 'includes/chat-functions.inc.php';
             }
             ?>
         </div>
+
     </div>
 
+<<<<<<< HEAD
     <!--- Main chat page -->
+=======
+    <!--- MAIN CHAT PAGE -->
+>>>>>>> origin/master
     <div class = "page-wrapper">
         <p id = "messageLogo">
             <span class='fullName'> Group Chat</span> <i hidden>(<span class='username'>group</span>)</i>
         </p>
+        <div>
+            <button id="chat-options-button">
+                <img id="chat-options-img" src="img/chat-options.png">
+            </button>
+            <div id="chat-options-content">
+                <a href="#" id="sendEmoji-link">Send emoji</a>
+                <a href="#" id="sendImg-link">Send image</a>
+                <a href="#">Report user</a>
+            </div>
+        </div>
+
         <div id = "messages"></div>
 
         <div>
             <form action="#" method="post" id="message-form">
                 <textarea name = "message" placeholder="Type a message..." id = "message" required autofocus></textarea>
-                <button id="sendButton" type = "submit" name="submit">
-                    <img id="sendImg" src="img/send-icon.png">
+                <button id="sendImg-Button" type="submit" title="Send image">
+                    <img class="messageIcon" id="sendIcon" src="img/send-icon.png">
                 </button>
             </form>
         </div>
+<<<<<<< HEAD
 
     </div>
 
@@ -143,10 +167,27 @@ include 'includes/chat-functions.inc.php';
 
 
 
+=======
+    </div>
+
+    <!--- SEND IMAGE -->
+    <?php include 'modal-content/send-image.php'?>
+
+    <!--- SEND EMOJI -->
+    <?php include 'modal-content/send-emoji.php'?>
+
+    <!--- REPORT PROBLEM FORM! -->
+    <?php include 'modal-content/report-problem.php'?>
+
+</div>
+
+<!--- JQuery Functions -->
+>>>>>>> origin/master
 <script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
 
+<<<<<<< HEAD
 <!--- Script to handle report problem --->
 <script type="text/javascript">
 
@@ -221,6 +262,13 @@ include 'includes/chat-functions.inc.php';
         });
     });
 </script>
+=======
+<!-- Various functions -->
+<script type="text/javascript" src="scripts/js/functions.js"></script>
+
+<!--- Send Emoji -->
+<script type="text/javascript" src="scripts/js/send-emoji.js"></script>
+>>>>>>> origin/master
 
 </body>
 </html>

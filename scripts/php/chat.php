@@ -3,7 +3,14 @@
 include '../../includes/database.inc.php';
 include '../../includes/chat-functions.inc.php';
 
-session_start();
+if(!isset($_SESSION)) {
+    session_start();
+}
+
+if(!isset($_SESSION['Username'])){
+    header("Location: ../../../index.php");
+    exit();
+}
 
 if(isset($_GET['chatPartner']) && !empty($_GET['chatPartner'])){
 

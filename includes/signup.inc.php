@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 //Checking if user has pressed sign-up button. If not => send to index.php
 if(isset($_POST['submit'])){
@@ -18,7 +20,7 @@ if(isset($_POST['submit'])){
     $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 
     //Checking for empty fields
-    if(empty($username) || empty($password) || empty($passwordCheck) || empty($email)){
+    if(empty($username) || empty($password) || empty($passwordCheck) || empty($email) || empty($gender)){
         $_SESSION['popup'] = True;
         $_SESSION['popup-message'] = "Missing fields";
         header("Location: ../signup.php");

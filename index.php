@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+if(!isset($_SESSION)) {
+    session_start();
+}
 
 if(isset($_SESSION['Username'])){
     header("Location: chat-main.php");
@@ -28,16 +31,22 @@ if(isset($_SESSION['Username'])){
 <body>
 
 <div class = "page-body">
-    <div class = "page-wrapper" style="height: auto">
+    <div class = "page-wrapper" style="height: auto; width: 50%; left: 0;">
         <form action = "includes/login.inc.php" method = "post">
             <p class = "indexLogo">Alpha Chat v0.8</p>
+<<<<<<< HEAD
             <input type = "text" name = "username" placeholder = "Username / E-mail"  autocomplete="off" required autofocus><br>
             <input type = "password"  name = "password" placeholder = "Password" autocomplete="off" required><br>
+=======
+            <input type = "text" class="input" name = "username" placeholder = "Username / E-mail" autocomplete="off" required <?php if(isset($_SESSION['username_input'])) echo "value = " . $_SESSION['username_input'] ; else echo "autofocus"?>><br>
+            <input type = "password" class="input" name = "password" placeholder = "Password" autocomplete="off" required <?php if(isset($_SESSION['username_input'])) echo "autofocus";?>><br>
+>>>>>>> origin/master
             <button class="submitButton" type = "submit" name = "submit">Login</button>
         </form>
 
         <span id="registered-link">Not registered? <a href = "signup.php" class="index-link">Create an account</a></span>
         <span id="password-link">Forgot your password? <a href = # class="index-link">Click here to reset</a></span>
+        <br><p style="margin-bottom: 0; color: red"><b>NOTE: This should not be used by anyone ever, for any reason. It is utterly garbage</b></p>
     </div>
 </div>
 
