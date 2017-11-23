@@ -26,7 +26,7 @@ include 'includes/chat-functions.inc.php';
     if(isset($_SESSION['popup']) && $_SESSION['popup']){
         $_SESSION['popup'] = False;
         $message = $_SESSION['popup-message'];
-        echo "<script> window.alert('$message')</script>";
+        echo "<script> window.alert('$message');</script>";
     }
     ?>
 </head>
@@ -39,16 +39,12 @@ include 'includes/chat-functions.inc.php';
 
         <!--- Settings in the sidebar -->
         <div class="settings">
-<<<<<<< HEAD
-            <button id="settings-button">
-=======
             <button id="settings-button" title="Settings">
->>>>>>> origin/master
                 <img id="settings-img" src="img/settings.png">
             </button>
             <div id="settings-content">
                 <a href="#">About</a>
-                <a href="#">Settings</a>
+                <a href="#" id="modal-settings-link">Settings</a>
                 <a href="#" id="report_problem-link">Report a problem</a>
                 <a href="includes/reset-chat.inc.php" onclick="return confirm('Are you sure you want to reset the chat?\nNOTE: This will delete all sent messages')">Reset Chat</a>
                 <a href="includes/logout.inc.php" id="logout" onclick = "return confirm('Are you sure you want to log out...?')">Logout</a>
@@ -82,18 +78,20 @@ include 'includes/chat-functions.inc.php';
                 $fullName = $row['FirstName'] . " " . $row['LastName'];
                 $userName = $row['Username'];
                 $email = $row['Email'];
+                $imgLink = $row['ProfilePic'];
 
-                if($row['Gender'] == "Male"){
-                    $imgLink = 'img/male-usericon.png';
-                }
-                else{
-                    $imgLink = 'img/female-usericon.png';
+                if($imgLink == null){
+                    if($row['Gender'] == "Male"){
+                        $imgLink = 'img/male-usericon.png';
+                    }
+                    else{
+                        $imgLink = 'img/female-usericon.png';
+                    }
                 }
 
-                echo "<div class='user' 
-                        onclick='messageLogoChange(this), highlight(this)'> 
+                echo "<div class='user' onclick='messageLogoChange(this), highlight(this)'> 
                         <img class='user-icon' src= $imgLink >
-                        <div class='user-details'><span class='fullName'>" . $fullName . "</span> <i>(<span class='username'>"  .$userName . "</span>)</i></div>
+                        <div class='user-details'><span class='fullName'>" . $fullName . "</span> <i hidden>(<span class='username'>"  .$userName . "</span>)</i></div>
                       </div>";
             }
             ?>
@@ -101,11 +99,7 @@ include 'includes/chat-functions.inc.php';
 
     </div>
 
-<<<<<<< HEAD
-    <!--- Main chat page -->
-=======
     <!--- MAIN CHAT PAGE -->
->>>>>>> origin/master
     <div class = "page-wrapper">
         <p id = "messageLogo">
             <span class='fullName'> Group Chat</span> <i hidden>(<span class='username'>group</span>)</i>
@@ -123,52 +117,20 @@ include 'includes/chat-functions.inc.php';
 
         <div id = "messages"></div>
 
-        <div>
+        <div id="message-input">
             <form action="#" method="post" id="message-form">
                 <textarea name = "message" placeholder="Type a message..." id = "message" required autofocus></textarea>
-                <button id="sendImg-Button" type="submit" title="Send image">
+                <img id="sendEmoji-image" src="img/send-emoji.png" title="Send emoji">
+                <img id="sendImg-image" src="img/image-icon.png" title="Send image">
+                <button id="sendMessage-Button" type="submit" title="Send message">
                     <img class="messageIcon" id="sendIcon" src="img/send-icon.png">
                 </button>
             </form>
         </div>
-<<<<<<< HEAD
-
     </div>
-
 
     <!--- REPORT PROBLEM FORM! -->
-    <div id="report_problem">
-        <div id="report_problem-content">
-            <div id="report_problem-header">
-                <span id="report_problem-header-text"><b>Report a problem</b></span>
-                <span id="close-report_problem">&times;</span>
-            </div>
-            <form action="includes/report-problem-mail.inc.php" method="post" onsubmit="return confirm('Are you sure you want to report the problem?')" id="report_problem-form">
-                <p>Where is the problem?</p>
-                <select id="report_problem-select" name="problem-area">
-                    <option>Messages or Chat</option>
-                    <option>Login</option>
-                    <option>Signup</option>
-                    <option>Settings</option>
-                    <option>Problem reporting</option>
-                    <option>Other... (please specify)</option>
-                </select>
-                <p>What happened?</p>
-                <textarea name="problem" id="problem" placeholder="Explain shortly (140 characters) what happened, and how to recreate the problem..." maxlength="140" required></textarea>
-                <div id="report_problem-button">
-                    <button id="report_problem-cancel" type="button">Cancel</button>
-                    <button id="report_problem-send" type="submit" name="submit">Report problem</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-</div>
-
-
-
-=======
-    </div>
+    <?php include 'modal-content/report-problem.php'?>
 
     <!--- SEND IMAGE -->
     <?php include 'modal-content/send-image.php'?>
@@ -176,99 +138,23 @@ include 'includes/chat-functions.inc.php';
     <!--- SEND EMOJI -->
     <?php include 'modal-content/send-emoji.php'?>
 
-    <!--- REPORT PROBLEM FORM! -->
-    <?php include 'modal-content/report-problem.php'?>
+    <!--- SETTINGS -->
+    <?php include 'modal-content/settings.php'?>
+
+
 
 </div>
 
 <!--- JQuery Functions -->
->>>>>>> origin/master
 <script type="text/javascript" src="scripts/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="scripts/js/auto-chat.js"></script>
 <script type="text/javascript" src="scripts/js/send.js"></script>
 
-<<<<<<< HEAD
-<!--- Script to handle report problem --->
-<script type="text/javascript">
-
-    // Get the modal
-    var modal = document.getElementById('report_problem');
-    // Get the button that opens the modal
-    var btn = document.getElementById("report_problem-link");
-    // Get the <span> element that closes the modal
-    var span = document.getElementById("close-report_problem");
-    //Cancel button
-    var cancel = document.getElementById("report_problem-cancel");
-
-    // When the user clicks the button, open the modal
-    btn.onclick = function() {
-        modal.style.display = "block";
-    };
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    };
-    cancel.onclick = function() {
-        modal.style.display = "none";
-    };
-
-</script>
-
-
-<script type="text/javascript">
-
-    //Highlight the clicked user
-    function highlight(item){
-        var classList = document.getElementsByClassName('highlight');
-        for(i = 0; i < classList.length; i++){
-            classList[i].classList.remove('highlight');
-        }
-        item.classList.add('highlight');
-    }
-
-    /*
-    //Toggle settings-menu
-    $(document).ready(function() {
-        $('#settings-button').click(function() {
-            $('#settings-content').slideToggle("medium");
-        });
-    });
-    */
-
-    $(document).click(function(event) {
-        if(event.target.id === "settings-img") {
-            $('#settings-content').slideToggle("medium");
-        }
-        else{
-            if($('#settings-content').is(":visible")) {
-                $('#settings-content').slideToggle("medium");
-            }
-        }
-    });
-
-    // Script to change color to active element
-    function messageLogoChange(item) {
-        document.getElementById('messageLogo').innerHTML = item.getElementsByClassName('user-details')[0].innerHTML;
-    }
-
-    //Script to send message when enter is clicked
-    $(document).ready(function(){
-        $('#message').keypress(function(e){
-            if(e.which === 13 && !e.shiftKey){
-                // submit via ajax or
-                $('#message-form').submit();
-            }
-        });
-    });
-</script>
-=======
 <!-- Various functions -->
 <script type="text/javascript" src="scripts/js/functions.js"></script>
 
 <!--- Send Emoji -->
 <script type="text/javascript" src="scripts/js/send-emoji.js"></script>
->>>>>>> origin/master
 
 </body>
 </html>

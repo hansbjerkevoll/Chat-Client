@@ -45,4 +45,3 @@ $(document).click(function(event) {
         }
     }
 });
-

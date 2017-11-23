@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
     $passwordCheck = mysqli_real_escape_string($conn, $_POST['passwordCheck']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+    $profilepicsrc = mysqli_real_escape_string($conn, $_POST['profile-pic']);
 
     //Checking for empty fields
     if(empty($username) || empty($password) || empty($passwordCheck) || empty($email) || empty($gender)){
@@ -68,7 +69,7 @@ if(isset($_POST['submit'])){
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     //Inserting data into the database
-    $sql = "INSERT INTO Users (FirstName, LastName, Username, Gender, Email, Password) VAlUES ('$firstname', '$lastname', '$username', '$gender', '$email', '$password')";
+    $sql = "INSERT INTO Users (FirstName, LastName, Username, Gender, ProfilePic, Email, Password) VAlUES ('$firstname', '$lastname', '$username', '$gender', '$profilepicsrc', '$email', '$password')";
 
     if (mysqli_query($conn, $sql)) {
 

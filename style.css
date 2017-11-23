@@ -10,6 +10,7 @@ body {
     font-size: 90%;
 }
 
+
 .page-body{
     display: flex;
     justify-content: center;
@@ -177,6 +178,7 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    z-index: 1;
 }
 
 #settings-content a:hover {
@@ -186,10 +188,10 @@ body {
 .user {
     background-color: #f9f9f9;
     width:100%;
-    height: 60px;
+    height: 75px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    display: table;
 }
 
 .user:hover {
@@ -205,7 +207,7 @@ body {
 }
 
 .user-icon {
-    height: 45px;
+    height: 60px;
     padding-top: 7px;
     padding-left: 5px;
     position: fixed;
@@ -213,9 +215,13 @@ body {
 
 .user-details {
     font-weight: bold;
-    padding-top: 20px;
-    padding-left: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 110%;
+    padding-left: 80px;
 }
+
+
 
 .userList {
     overflow: auto;
@@ -225,7 +231,7 @@ body {
 /* CSS for the Chat */
 
 #messageLogo {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 /*Chat options */
@@ -274,21 +280,27 @@ body {
 
 #messages {
     width: 100%;
-    height: calc(100% - 110px);
+    height: calc(100% - 125px);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
+#message-input {
+    border: 1px solid #808080;
+    width: calc(100% - 10px);
+    height: 85px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+
 #message {
-<<<<<<< HEAD
-    width: calc(100% - 50px);
-=======
-    width: calc(100% - 60px);
+    width: calc(100% - 120px);
     background-color: #f9f9f9;
->>>>>>> origin/master
     height: 80px;
-    max-height: 80px;
     resize: none;
+    border: none;
     font-size: 20px;
     float: left;
     font-family: Tahoma, "Times New Roman", serif;
@@ -298,58 +310,55 @@ body {
     outline: none;
 }
 
-#sendImg-Button {
+#sendImg-image {
+    height: 40px;
+    cursor: pointer;
     border: none;
-    position: absolute;
-    float: right;
     background-color: transparent;
-    margin-top: 12px;
+    position: absolute;
+    margin-top: 47px;
+    right: 90px;
 }
 
-<<<<<<< HEAD
-#sendButton:focus {
-    outline: none;
-}
-
-#sendButton:hover {
+#sendImg-image:hover{
     filter: brightness(80%);
 }
 
-#sendImg {
-=======
-#sendImg-Button:focus {
+#sendEmoji-image {
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 90px;
+    margin-top: 2px;
+}
+
+#sendEmoji-image:hover {
+    filter: brightness(80%);
+}
+
+#sendMessage-Button {
+    border: none;
+    position: absolute;
+    right: 15px;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+#sendMessage-Button:focus {
     outline: none;
 }
 
-#sendImg-Button:hover {
+#sendMessage-Button:hover {
     filter: brightness(80%);
 }
 
 .messageIcon {
->>>>>>> origin/master
     cursor: pointer;
     border: none;
-    width: 65px;
+    height: 65px;
     background-color: transparent;
-}
-
-<<<<<<< HEAD
-
-
-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 140%;
-    font-family: Tohoma, serif;
-=======
-#sendImg {
-    display: none;
->>>>>>> origin/master
 }
 
 #gender-select {
@@ -372,6 +381,7 @@ input {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: Tahoma, "Times New Roman", serif;
 }
 
 .submitButton:hover {
@@ -379,14 +389,8 @@ input {
 }
 
 
-<<<<<<< HEAD
-/* CSS for the REPORT PROBLEM FORM */
-
-#report_problem {
-=======
 /* CSS FOR THE MODAL CONTENT */
 .modal {
->>>>>>> origin/master
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -394,8 +398,6 @@ input {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-<<<<<<< HEAD
-=======
 }
 
 .modal-content {
@@ -553,151 +555,12 @@ input {
     font-family: Tahoma, "Times New Roman", serif;
 }
 
-/* Links on the login page (register and forgotten password) */
-.index-link:hover {
-    color: #45A049;
->>>>>>> origin/master
-}
 
-#report_problem-content {
-    width: 500px;
-    height: 300px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    margin: -160px 0 0 -260px;
-    background-color: #f9f9f9;
-    border: 1px solid #c7c7c7;
-    border-radius: 10px;
-}
-
-<<<<<<< HEAD
-#report_problem-header {
-    background-color: #e0e0e0;
-    width: 100%;
-    height: 30px;
-    border-top: black;
-    border-right: black;
-    border-left: black;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-
-=======
-#password-link {
-    float: right;
->>>>>>> origin/master
-}
-
-#report_problem-header-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 6px;
-    margin-left: 10px;
-    font-weight: bold;
-}
-
-<<<<<<< HEAD
-#report_problem-form {
-    margin: 10px;
-}
-
-#problem {
-    width: 100%;
-    height: 80px;
-    resize: none;
-    float: left;
-    font-family: Tahoma, "Times New Roman", serif;
-}
-
-#report_problem-button {
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-top: solid 1px #c7c7c7;
-}
-
-#report_problem-cancel {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-right: 120px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    height: 25px;
-    border: none;
-    background-color: #c7c7c7;
-    cursor: pointer;
-}
-
-#report_problem-send {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-right: 5px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    height: 26px;
-    border: none;
-    background-color: #4668a5;
-    color: #f9f9f9;
-    cursor: pointer;
-}
-
-#close-report_problem {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 1px;
-    margin-right: 7px;
-    color: #aaaaaa;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#close-report_problem:hover {
-    filter: brightness(80%);
-=======
-
-/* Random shit */
-#signup-profile-pic {
-    height: 50px;
-    padding-top: 25px;
-    padding-left: 15px;
-    cursor: pointer;
-}
-
-#profilepic_page-content {
+/* CSS for the SETTINGS */
+#modal-settings-content {
     height: 600px;
     margin: -300px 0 0 -250px;
 }
-
-#profile-pic-list {
-    margin: 10px 22px 0 22px;
-    height: 570px;
-    overflow: auto;
-}
-
-.profile-pic {
-    width: 72px;
-    height: 72px;
-    cursor: pointer;
-}
-
-.profile-pic:hover {
-    background-color: transparent;
-    filter: brightness(90%);
-}
-
-#signup-profile-pic:hover {
-    filter: brightness(90%);
->>>>>>> origin/master
-}
-
-
 
 /* Links on the login page (register and forgotten password) */
 .index-link:hover {
@@ -708,7 +571,6 @@ input {
     float: left;
 }
 
-
 #password-link {
     float: right;
 }
@@ -716,6 +578,47 @@ input {
 .index-link {
     text-decoration: none;
     color: #4CAF50;
+}
+
+
+/* CSS for signup*/
+#signup-profile-pic {
+    height: 65px;
+    padding-top: 10px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+#profilepic_page-content {
+    height: 600px;
+    margin: -300px 0 0 -250px;
+}
+
+#profile-pic-list {
+    margin: 0 20px 0 20px;
+    height: 570px;
+    overflow: auto;
+}
+
+.profile-pic {
+    width: 82px;
+    height: 82px;
+    cursor: pointer;
+}
+
+.profile-pic:hover {
+    background-color: transparent;
+    filter: brightness(90%);
+}
+
+#signup-profile-pic:hover {
+    filter: brightness(90%);
+}
+
+/* Random Shit */
+.horizontal-line {
+    margin: 10px 0 10px 0;
+    border-top: 1px solid #c7c7c7;
 }
 
 /*Styling scrollbar for the list of users */
@@ -765,8 +668,6 @@ input {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #d2d2d2;
-<<<<<<< HEAD
-=======
 }
 
 /*Styling the scrollbar for the emojilist */
@@ -788,5 +689,79 @@ input {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #d2d2d2;
->>>>>>> origin/master
+}
+
+/*Styling the scrollbar for the profile pic list */
+#profile-pic-list::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#profile-pic-list::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#profile-pic-list::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #d2d2d2;
+}
+
+/* IF SCREEN IS WIDER THAN 600PX HIDE SEND BUTTON */
+@media screen and (min-width: 720px) {
+    .messageIcon {
+        display: none;
+    }
+
+    #message {
+        width: calc(100% - 70px);
+    }
+
+    #sendImg-image {
+        right: 30px;
+    }
+    #sendEmoji-image{
+        right: 30px;
+    }
+}
+
+/* IF SCREEN IS BETWEEN 720PX AND 1200PX FIXED WIDTH OF SIDEBAR */
+@media screen and (min-width: 720px) and (max-width: 1200px){
+    .sidebar {
+        width: 240px;
+    }
+
+    .page-wrapper {
+        position: absolute;
+        width: calc(100% - 360px);
+        left: 280px;
+    }
+}
+
+/* IF SCREEN IS NARROWER THAN 720PX HIDE USER DETAILS */
+@media screen and (max-width: 720px){
+    .user-details {
+        display: none;
+    }
+
+    .sidebar {
+        width: 70px;
+    }
+    .page-wrapper {
+        position: absolute;
+        width: calc(100% - 180px);
+        left: 100px;
+    }
+    .logo {
+        display: none;
+    }
+
+    #settings-button {
+        margin-left: 13px;
+    }
 }

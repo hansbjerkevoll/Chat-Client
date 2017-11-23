@@ -39,8 +39,6 @@ function get_msg($chatPartner, $conn){
             //Converting to proper string
             $message = nl2br(htmlspecialchars($message));
 
-<<<<<<< HEAD
-=======
             //Checking if !image command is used to send image
             if(substr($message, 0, 7) == "!image "){
                 $imgLink = substr($message, 7, strlen($message));
@@ -56,7 +54,6 @@ function get_msg($chatPartner, $conn){
                 $message = "<div><a href='$message' target='_blank'>$message</a> </div>";
             }
 
->>>>>>> origin/master
             $messages[] = array($row['Sender'], $displayTime, $message);
         }
 

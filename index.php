@@ -31,16 +31,11 @@ if(isset($_SESSION['Username'])){
 <body>
 
 <div class = "page-body">
-    <div class = "page-wrapper" style="height: auto; width: 50%; left: 0;">
+    <div class = "page-wrapper" style="height: auto; width: 50%; left: 0; max-width: 1000px">
         <form action = "includes/login.inc.php" method = "post">
             <p class = "indexLogo">Alpha Chat v0.8</p>
-<<<<<<< HEAD
-            <input type = "text" name = "username" placeholder = "Username / E-mail"  autocomplete="off" required autofocus><br>
-            <input type = "password"  name = "password" placeholder = "Password" autocomplete="off" required><br>
-=======
             <input type = "text" class="input" name = "username" placeholder = "Username / E-mail" autocomplete="off" required <?php if(isset($_SESSION['username_input'])) echo "value = " . $_SESSION['username_input'] ; else echo "autofocus"?>><br>
             <input type = "password" class="input" name = "password" placeholder = "Password" autocomplete="off" required <?php if(isset($_SESSION['username_input'])) echo "autofocus";?>><br>
->>>>>>> origin/master
             <button class="submitButton" type = "submit" name = "submit">Login</button>
         </form>
 

@@ -101,12 +101,19 @@
     var sendEmoji_modal = document.getElementById('sendEmoji_page');
     // Get the button that opens the modal
     var sendEmoji_btn = document.getElementById("sendEmoji-link");
+    //Get the image that opens the modal
+    var sendEmoji_img = document.getElementById("sendEmoji-image");
     // Get the <span> element that closes the modal
     var sendEmoji_span = document.getElementById("close-sendEmoji_page");
 
 
     // When the user clicks the button, open the modal
     sendEmoji_btn.onclick = function() {
+        sendEmoji_modal.style.display = "block";
+    };
+
+    // When the user clicks the image, open the modal
+    sendEmoji_img.onclick = function() {
         sendEmoji_modal.style.display = "block";
     };
 

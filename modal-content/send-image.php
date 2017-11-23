@@ -1,7 +1,7 @@
 <div class="modal" id="sendImg_page">
     <div class="modal-content" id="sendImg_page-content">
         <div class="modal-content-header" id="sendImg_page-header">
-            <span class="modal-content-header-text" id="sendImg_page-text"><b>Send image</b></span>
+            <span class="modal-content-header-text" id="sendImg_page-text"><b>Send image (NOT WORKING...)</b></span>
             <span class="close-modal-content" id="close-sendImg_page">&times;</span>
         </div>
         <form action="includes/upload.php" method="post" id="sendImg_form" enctype="multipart/form-data">
@@ -25,6 +25,8 @@
     var sendImg_modal = document.getElementById('sendImg_page');
     // Get the button that opens the modal
     var sendImg_btn = document.getElementById("sendImg-link");
+    // Get the iage that opens the modal
+    var sendImg_img = document.getElementById("sendImg-image");
     // Get the <span> element that closes the modal
     var sendImg_span = document.getElementById("close-sendImg_page");
     //Cancel button
@@ -33,6 +35,11 @@
 
     // When the user clicks the button, open the modal
     sendImg_btn.onclick = function() {
+        sendImg_modal.style.display = "block";
+    };
+
+    // When the user clicks the image, open the modal
+    sendImg_img.onclick = function() {
         sendImg_modal.style.display = "block";
     };
 

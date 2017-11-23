@@ -1,12 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-session_start();
-=======
 if(!isset($_SESSION)) {
     session_start();
 }
->>>>>>> origin/master
 
 
 if($_SESSION['Username'] == 'hansbj'){
