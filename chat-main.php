@@ -23,6 +23,11 @@ include 'includes/chat-functions.inc.php';
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <link rel="stylesheet" type="text/css" href="css/modal-content.css">
 
+    <!--- META DATA -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Hans Bjerkevoll">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <?php
     //Scripts for runnning popup boxes
     if(isset($_SESSION['popup']) && $_SESSION['popup']){
