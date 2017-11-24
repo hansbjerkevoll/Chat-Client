@@ -12,6 +12,7 @@ if(!isset($_SESSION)) {
     <title>Chat client</title>
     <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/modal-content.css">
 
     <?php
