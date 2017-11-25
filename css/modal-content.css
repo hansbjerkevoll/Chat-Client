@@ -122,6 +122,11 @@
 }
 
 /* REPORT PROBLEM FORM */
+#report_problem-content {
+    margin: -300px 0 0 -250px;
+}
+
+
 #report_problem-form {
     margin: 10px;
 }
@@ -134,7 +139,19 @@
     font-family: Tahoma, "Times New Roman", serif;
 }
 
+/*RESET PASSWORD */
+#reset-password-form {
+    margin: 10px;
+}
 
+/* ABOUT */
+#about-text {
+    margin: 10px;
+}
+
+#about-content {
+    margin: -300px 0 0 -250px;
+}
 
 /* PROFILE PICTURES */
 

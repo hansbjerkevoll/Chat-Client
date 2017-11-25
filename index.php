@@ -17,6 +17,7 @@ if(isset($_SESSION['Username'])){
     <title>Chat Client</title>
     <link rel="icon" href="img/chat-icon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/modal-content.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
 
@@ -50,6 +51,9 @@ if(isset($_SESSION['Username'])){
         <span id="password-link">Forgot your password? <a href = # class="index-link">Click here to reset</a></span>
         <br><p style="margin-bottom: 0; color: red"><b>NOTE: This should not be used by anyone ever, for any reason. It is utterly garbage</b></p>
     </div>
+
+    <!--- RESET PASSWORD  -->
+    <?php include 'modal-content/reset-password.php'?>
 </div>
 
 <footer id="index-footer">

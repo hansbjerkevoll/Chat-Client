@@ -43,6 +43,11 @@
         sendImg_modal.style.display = "block";
     };
 
+    // When the user clicks outside the box, close the modal
+    sendImg_modal.onclick = function() {
+        sendImg_modal.style.display = "none";
+    };
+
     // When the user clicks on <span> (x), close the modal
     sendImg_span.onclick = function() {
         sendImg_modal.style.display = "none";

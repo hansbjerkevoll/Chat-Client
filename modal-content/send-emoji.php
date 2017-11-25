@@ -117,6 +117,11 @@
         sendEmoji_modal.style.display = "block";
     };
 
+    // When the user clicks outside the box, close the modal
+    sendEmoji_modal.onclick = function() {
+        sendEmoji_modal.style.display = "none";
+    };
+
     // When the user clicks on <span> (x), close the modal
     sendEmoji_span.onclick = function() {
         sendEmoji_modal.style.display = "none";

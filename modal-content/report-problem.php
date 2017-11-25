@@ -37,7 +37,6 @@
     // When the user clicks the button, open the modal
     report_problem_btn.onclick = function() {
         report_problem_modal.style.display = "block";
-        console.log("ashdhasjkd");
     };
 
     // When the user clicks on <span> (x), close the modal

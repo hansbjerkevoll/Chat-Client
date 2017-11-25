@@ -1,6 +1,6 @@
 ToDo-list:
 
-1) Mulighet til å sende bilde, ved å laste opp til server
-2) Slippe å måtte gå inn i database for å resete
-3) Mulighet til å chatte med kun en person
-4) Email-validering og forgotten password
+- Mulighet til å sende bilde og filer, ved å laste opp til server
+- Gruppe Chat
+- Søk etter bruker
+- Email-validering og forgotten password

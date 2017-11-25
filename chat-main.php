@@ -50,7 +50,7 @@ include 'includes/chat-functions.inc.php';
                 <img id="settings-img" src="img/settings.png">
             </button>
             <div id="settings-content">
-                <a href="#">About</a>
+                <a href="#" id="about-link">About</a>
                 <a href="#" id="modal-settings-link">Settings</a>
                 <a href="#" id="report_problem-link">Report a problem</a>
                 <a href="includes/reset-chat.inc.php" onclick="return confirm('Are you sure you want to reset the chat?\nNOTE: This will delete all sent messages')">Reset Chat</a>
@@ -66,6 +66,7 @@ include 'includes/chat-functions.inc.php';
 
         <!--- List of the users -->
         <div class="userList scrollbar">
+
 
             <div class="user highlight" onclick='messageLogoChange(this), highlight(this)'>
                 <img class='user-icon' src= 'img/group-usericon.png'>
@@ -136,6 +137,9 @@ include 'includes/chat-functions.inc.php';
         </div>
     </div>
 
+    <!--- ABOUT -->
+    <?php include 'modal-content/about.php'?>
+
     <!--- REPORT PROBLEM FORM! -->
     <?php include 'modal-content/report-problem.php'?>
 
@@ -147,6 +151,8 @@ include 'includes/chat-functions.inc.php';
 
     <!--- SETTINGS -->
     <?php include 'modal-content/settings.php'?>
+
+
 
 
 
